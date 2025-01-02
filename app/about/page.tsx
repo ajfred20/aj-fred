@@ -12,7 +12,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function About() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -97,44 +97,61 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <h1 className="text-5xl font-bold mb-12">
-          15 Year Old Supercracked <br />
-          Frontend Developer👀💙.
-        </h1>
+        <h1 className="text-5xl font-bold text-center mb-4">Udalric Aj Fred</h1>
 
-        <p className="text-lg mb-6">
-          I am Udalric Aj Fred A Frontend Web Developer With 3+ years experince.{" "}
-          <br />I create amazing programs that drag attention. Creator of
+        <p className="text-center mb-12">
+          Founder @{" "}
+          <Link
+            href="https://waitlist-rydon.vercel.app"
+            className="text-blue-600 hover:text-blue-700 inline-flex items-center"
+          >
+            Rydon Africa <ArrowUpRight className="w-4 h-4" />
+          </Link>
         </p>
 
-        <div className="flex flex-wrap gap-4 mb-12">
-          {["Canvax", "Luro", "Linkify", "Collocate"].map((project) => (
-            <Link
-              key={project}
-              href={`/projects/${project.toLowerCase()}`}
-              className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
-            >
-              {project}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          ))}
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 md:gap-12 mb-12">
+          <div>
+            <Image
+              src="/assets/about.svg"
+              alt="Aj Fred"
+              width={600}
+              height={600}
+              className="rounded-lg w-full"
+            />
+          </div>
+
+          <div className="space-y-6">
+            <p>
+              I am a 15 year old Frontend Developer with over 3+ years of
+              experience, i am currently pursuing a diploma in Computer Science
+              with a focus on user interface designs and frontend engineering.
+            </p>
+
+            <p>
+              I also build fullstack applications (Web Apps, PWAs). I craft
+              fast, seamless and scalable user interfaces.
+            </p>
+
+            <p>
+              I am focused on creative detail and functionality. My goal is to
+              help others learn from and use the programs I create. I've built
+              web apps, webpages and programs. You can find all my projects on
+              GitHub,{" "}
+              <Link
+                href="https://github.com/ajfred20"
+                className="text-blue-600 hover:text-blue-700 inline-flex items-center"
+              >
+                Github - @ajfred20 <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </p>
+
+            <p>In my free time, I am a Graphics designer👀😂.</p>
+
+            <Button variant="outline" className="mt-4">
+              Projects <ArrowUpRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
         </div>
-
-        <p className="text-lg mb-8">
-          Frontend Engineer - Crafting Amazing Websites & Engaging User
-          Interfaces, Bringing <br />
-          Africa forward in the tech space.
-        </p>
-
-        <p className="text-lg mb-12">
-          I Belive That great things can come from a small place.
-        </p>
-
-        <Link href="https://x.com/iamajfred_">
-          <Button variant="outline" className="mb-16">
-            My Profile <ArrowUpRight className="w-4 h-4 ml-2" />
-          </Button>
-        </Link>
 
         <section>
           <h2 className="text-2xl font-medium mb-4">Contact Me.</h2>
