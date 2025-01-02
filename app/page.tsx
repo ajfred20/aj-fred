@@ -111,7 +111,7 @@ export default function Home() {
           {["Canvax", "Luro", "Linkify", "Collocate"].map((project) => (
             <Link
               key={project}
-              href={`/projects/${project.toLowerCase()}`}
+              href={`/projects?project=${project.toLowerCase()}`}
               className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
             >
               {project}

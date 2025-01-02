@@ -123,8 +123,8 @@ export default function About() {
           <div className="space-y-6">
             <p>
               I am a 15 year old Frontend Developer with over 3+ years of
-              experience, i am currently pursuing a diploma in Computer Science
-              with a focus on user interface designs and frontend engineering.
+              experience, i am into web development with a focus on user
+              interface designs and frontend engineering.
             </p>
 
             <p>
@@ -146,10 +146,11 @@ export default function About() {
             </p>
 
             <p>In my free time, I am a Graphics designer👀😂.</p>
-
-            <Button variant="outline" className="mt-4">
-              Projects <ArrowUpRight className="w-4 h-4 ml-2" />
-            </Button>
+            <Link href="/projects">
+              <Button variant="outline" className="mt-4">
+                Projects <ArrowUpRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
 
