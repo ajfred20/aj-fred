@@ -77,4 +77,19 @@
     font-family: "Satoshi", sans-serif;
     font-weight: 400;
   }
+
+  .text-gradient {
+    background: linear-gradient(
+      to right,
+      #ff6ec7,
+      /* Soft pink */ #ff9a9e,
+      /* Peach */ #fbc8d4,
+      /* Light coral */ #7eadf8,
+      /* Sky blue */ #61b9e2 /* Soft cyan */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem; /* Adjust the size as needed */
+    font-weight: bold; /* Optional for a stronger effect */
+  }
 }

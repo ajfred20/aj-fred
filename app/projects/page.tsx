@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -5,14 +8,79 @@ import {
   Github,
   Linkedin,
   Twitter,
+  FolderClosed,
   HomeIcon,
   User,
-  FolderClosed,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ProjectCard } from "../../components/ui/project-card";
 
-export default function Home() {
+const FILTERS = ["All", "Webpage", "React", "Web App", "Vue"];
+
+const PROJECTS = [
+  {
+    title: "Linkify",
+    description:
+      "Effortlessly streamline your link management with Linkify. Shorten, track, and organize all your links in one place. ",
+    tags: ["TypeScript", "React"],
+    type: "Webpage",
+    link: "https://linkify-io.vercel.app/",
+  },
+  {
+    title: "Luro",
+    description:
+      "Your ultimate social media marketing tool used to Elevate your social media presense with AI-powered content creation and scheduling.",
+    tags: ["TypeScript", "Tailwind", "React"],
+    type: "Web App",
+    link: "https://luro-ai.vercel.app/",
+  },
+  {
+    title: "Collocate",
+    description: "Collocate is a file organization and project management app.",
+    tags: ["Vue", "Nuxt"],
+    type: "Vue",
+    link: "https://collocate.vercel.app/",
+  },
+  {
+    title: "Canvax",
+    description:
+      "Build stunning websites with Canvax's intuitive drag-and-drop builder and powerful AI assistant",
+    tags: ["TypeScript", "Next JS", "React"],
+    type: "React",
+    link: "https://aj-canvax.vercel.app",
+  },
+  {
+    title: "Brainwave",
+    description:
+      "Unleash the power of AI within Brainwave. Upgrade your productivity with Brainwave, the open AI chat app.",
+    tags: ["TypeScript", "Next JS"],
+    type: "Webpage",
+    link: "https://brainwave-9ja.vercel.app/",
+  },
+  {
+    title: "9jasushi",
+    description: "Japanese food ordering service built for practice purpose.",
+    tags: ["HTML", "CSS", "Javascript"],
+    type: "Webpage",
+    link: "https://9jasushi.vercel.app/",
+  },
+];
+
+export default function Projects() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const filteredProjects = PROJECTS.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesFilter =
+      activeFilter === "All" || project.type === activeFilter;
+    return matchesSearch && matchesFilter;
+  });
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -96,45 +164,42 @@ export default function Home() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <h1 className="text-5xl font-bold mb-12">
-          15 Year Old <span className="text-gradient">Supercracked</span> <br />
-          Frontend Developer👀💙.
-        </h1>
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <h1 className="text-5xl font-bold text-center mb-4">My Projects</h1>
 
-        <p className="text-lg mb-6">
-          I am Udalric Aj Fred A Frontend Web Developer With 3+ years experince.{" "}
-          <br />I create amazing programs that drag attention. Creator of
+        <p className="text-center text-muted-foreground mb-12">
+          "It&apos;s not about how you fail but how good you are at failing." —{" "}
+          <span className="text-foreground">Aj Fred</span>
         </p>
 
-        <div className="flex flex-wrap gap-4 mb-12">
-          {["Canvax", "Luro", "Linkify", "Collocate"].map((project) => (
-            <Link
-              key={project}
-              href={`/projects/${project.toLowerCase()}`}
-              className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
+        <div className="mb-8">
+          <Input
+            type="text"
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="max-w-md mx-auto"
+          />
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-12">
+          {FILTERS.map((filter) => (
+            <Button
+              key={filter}
+              variant={activeFilter === filter ? "default" : "ghost"}
+              onClick={() => setActiveFilter(filter)}
+              className="rounded-full"
             >
-              {project}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+              {filter}
+            </Button>
           ))}
         </div>
 
-        <p className="text-lg mb-8">
-          Frontend Engineer - Crafting Amazing Websites & Engaging User
-          Interfaces, Bringing <br />
-          Africa forward in the tech space.
-        </p>
-
-        <p className="text-lg mb-12">
-          I Belive That great things can come from a small place.
-        </p>
-
-        <Link href="https://x.com/iamajfred_">
-          <Button variant="outline" className="mb-16">
-            My Profile <ArrowUpRight className="w-4 h-4 ml-2" />
-          </Button>
-        </Link>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
+        </div>
 
         <section>
           <h2 className="text-2xl font-medium mb-4">Contact Me.</h2>
