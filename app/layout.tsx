@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Aj Fred",
   description: "15 year old supercracked Frontend Developer",
   icons: {
-    icon: "/assets/fred.svg",
+    icon: "/favicon.ico?v=1",
   },
 };
 

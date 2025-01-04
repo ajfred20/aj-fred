@@ -20,7 +20,7 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <Image
-            src="/assets/about.svg"
+            src="/assets/fred.jpg"
             alt="Profile"
             width={40}
             height={40}

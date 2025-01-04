@@ -20,7 +20,7 @@ export default function About() {
       <header className="flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <Image
-            src="/assets/about.svg"
+            src="/assets/fred.jpg"
             alt="Profile"
             width={40}
             height={40}
@@ -120,11 +120,11 @@ export default function About() {
         <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 md:gap-12 mb-12">
           <div>
             <Image
-              src="/assets/about.svg"
+              src="/assets/fred.jpg"
               alt="Aj Fred"
               width={600}
               height={600}
-              className="rounded-lg w-full"
+              className="rounded-full w-full"
             />
           </div>
 
