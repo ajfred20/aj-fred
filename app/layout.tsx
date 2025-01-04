@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Aj Fred",
-  description: "Frontend Developer",
+  description: "15 year old supercracked Frontend Developer",
   icons: {
     icon: "/assets/fred.svg",
   },

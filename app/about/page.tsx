@@ -162,8 +162,8 @@ export default function About() {
           </div>
         </div>
 
-        <section>
-          <h2 className="text-2xl font-medium mb-4">Contact Me.</h2>
+        <section className="mb-12">
+          <h2 className="text-2xl font-medium mt-3">Contact Me.</h2>
           <p className="text-muted-foreground mb-4">
             Reach out to me{" "}
             <Link
