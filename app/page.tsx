@@ -8,6 +8,7 @@ import {
   HomeIcon,
   User,
   FolderClosed,
+  ImageIcon,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,12 @@ export default function Home() {
           >
             Projects
           </Link>
+          <Link
+            href="/highlights"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            Highlights
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -71,7 +78,7 @@ export default function Home() {
         </div>
       </header>
 
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 flex justify-around items-center">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 flex justify-around items-center z-10">
         <Link
           href="/"
           className="flex flex-col items-center gap-1 hover:text-blue-500"
@@ -92,6 +99,13 @@ export default function Home() {
         >
           <FolderClosed className="w-5 h-5" />
           <span className="text-xs">Projects</span>
+        </Link>
+        <Link
+          href="/highlights"
+          className="flex flex-col items-center gap-1 hover:text-blue-500"
+        >
+          <ImageIcon className="w-5 h-5" />
+          <span className="text-xs">Highlights</span>
         </Link>
       </nav>
 

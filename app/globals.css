@@ -89,7 +89,6 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 3rem; /* Adjust the size as needed */
     font-weight: bold; /* Optional for a stronger effect */
   }
 }
