@@ -116,6 +116,12 @@ export default function Projects() {
           >
             Projects
           </Link>
+          <Link
+            href="/highlights"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            Highlights
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
