@@ -112,8 +112,8 @@ export default function Home() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <h1 className="text-5xl font-bold mb-12">
-          15 Year Old <span className="text-gradient">Supercracked</span> <br />
-          Frontend Developer👀💙.
+          That <span className="text-gradient">Supercracked</span> <br />
+          Frontend Developer.
         </h1>
 
         <p className="text-lg mb-6">

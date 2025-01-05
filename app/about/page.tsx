@@ -130,9 +130,9 @@ export default function About() {
 
           <div className="space-y-6">
             <p>
-              I am a 15 year old Frontend Developer with over 3+ years of
-              experience, i am into web development with a focus on user
-              interface designs and frontend engineering.
+              I am a Frontend Developer with over 3+ years of experience, i am
+              into web development with a focus on user interface designs and
+              frontend engineering.
             </p>
 
             <p>
