@@ -111,7 +111,12 @@ export default function About() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <h1 className="text-5xl font-bold text-center mb-4">Udalric Aj Fred</h1>
+        <h1 className="text-5xl font-bold text-center mb-4">
+          <span className="text-gray-400 font-semibold text-center text-sm block mb-2">
+            Who am I?
+          </span>
+          Well I&apos;m Udalric Aj Fred
+        </h1>
 
         <p className="text-center mb-12">
           Founder @{" "}

@@ -111,6 +111,16 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <div className="flex flex-col gap-4 mb-3">
+          <div className="inline-flex items-center gap-2 bg-green-50 text-green-800 px-4 py-2 rounded-full w-fit">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            Available for Gigs
+          </div>
+        </div>
+
         <h1 className="text-5xl font-bold mb-12">
           That <span className="text-gradient">Supercracked</span> <br />
           Frontend Developer.
@@ -145,7 +155,7 @@ export default function Home() {
         </p>
 
         <Link href="https://x.com/iamajfred_">
-          <Button variant="outline" className="mb-16">
+          <Button variant="outline">
             My Profile <ArrowUpRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
