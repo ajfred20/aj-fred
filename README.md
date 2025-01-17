@@ -2,5 +2,6 @@
 
 Still Cookin this shii is gonna be lit🔥🔥🔥(●'◡'●)
 Components Included: 
-Highlights Page,
- Preloader, and an activity badge
+Highlights Page, <br/>
+Preloader & <br/> 
+An activity badge
