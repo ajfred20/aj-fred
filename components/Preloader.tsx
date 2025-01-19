@@ -44,14 +44,42 @@ const TypewriterText: React.FC<{ text: string; delay?: number }> = ({
 
 export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
+  const [step, setStep] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-      router.push("/");
     }, 7000);
-  }, [router]);
+  }, []);
+
+  useEffect(() => {
+    const loadingDuration = 7000; // total loading time in milliseconds
+    const startTime = Date.now(); // record the start time
+
+    const intervalId = setInterval(() => {
+      const elapsedTime = Date.now() - startTime; // calculate elapsed time
+      const newStep = Math.min(
+        Math.floor((elapsedTime / loadingDuration) * 100),
+        100
+      ); // calculate percentage
+      setStep(newStep); // update step
+
+      if (newStep >= 100) {
+        clearInterval(intervalId); // clear interval when loading is complete
+      }
+    }, 100); // update every 100 milliseconds
+
+    return () => clearInterval(intervalId);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (step === 100) {
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
+    }
+  }, [step, router]);
 
   return (
     <AnimatePresence>
@@ -79,6 +107,13 @@ export default function Preloader() {
               variants={textVariants}
             >
               <TypewriterText text="And Welcome to my domain..." delay={3000} />
+            </motion.p>
+
+            <motion.p
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-300 absolute bottom-0 right-0 mb-4 mr-4"
+              variants={textVariants}
+            >
+              <span>{step}%</span>
             </motion.p>
           </motion.div>
         </motion.div>
