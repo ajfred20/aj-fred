@@ -110,7 +110,7 @@ export default function Preloader() {
             </motion.p>
 
             <motion.p
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-gray-300 absolute bottom-0 right-0 mb-4 mr-4"
+              className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-gray-300 absolute bottom-0 right-0 mb-4 mr-4"
               variants={textVariants}
             >
               <span>{step}%</span>

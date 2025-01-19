@@ -117,7 +117,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-4 tracking-[-0.02em]">
             Hey, I&apos;m Aj Fred.
             <br />
-            <span className="text-gradient">Dreamer</span>, Developer &{" "}
+            <span className="text-gradient">Dreamer</span> , Developer &{" "}
             <Image
               src="/figma.svg"
               alt="Figma"
@@ -167,42 +167,42 @@ export default function Home() {
                 alt: "Collocate",
                 caption: "Collocate",
                 livePreview: "https://collocate.vercel.app",
-                github: "https://github.com/user/project1",
+                github: "https://github.com/ajfred20/collocate",
               },
               {
-                src: "/assets/1.jpg",
-                alt: "Me and Ameen At FTF24",
-                caption: "Me and Ameen At FTF24",
-                livePreview: "https://example.com/demo2",
-                github: "https://github.com/user/project2",
+                src: "/assets/1.2.png",
+                alt: "Canvax",
+                caption: "Canvax",
+                livePreview: "https://aj-canvax.vercel.app",
+                github: "https://github.com/ajfred20/canvax",
               },
               {
-                src: "/assets/2.jpg",
-                alt: "My Cofounder & I with Renzo of Swiftyhost",
-                caption: "My Cofounder & I with Renzo of Swiftyhost",
-                livePreview: "https://example.com/demo3",
-                github: "https://github.com/user/project3",
+                src: "/assets/1.3.png",
+                alt: "Linkify",
+                caption: "Linkify",
+                livePreview: "https://linkify-io.vercel.app",
+                github: "#",
               },
               {
-                src: "/assets/3.jpg",
-                alt: "Coding Session",
-                caption: "👀",
-                livePreview: "https://example.com/demo4",
-                github: "https://github.com/user/project4",
+                src: "/assets/1.4.png",
+                alt: "Luro",
+                caption: "Luro",
+                livePreview: "https://luro-ai.vercel.app",
+                github: "#",
               },
               {
-                src: "/assets/4.jpg",
-                alt: "Award Ceremony",
-                caption: "Do Not View",
-                livePreview: "https://example.com/demo5",
-                github: "https://github.com/user/project5",
+                src: "/assets/1.5.png",
+                alt: "Brainwave",
+                caption: "Brainwave",
+                livePreview: "https://brainwave-9ja.vercel.app/",
+                github: "#",
               },
               {
-                src: "/assets/5.jpg",
-                alt: "New Project",
-                caption: "New Project",
-                livePreview: "https://example.com/demo6",
-                github: "https://github.com/user/project6",
+                src: "/assets/1.6.png",
+                alt: "Rewrap",
+                caption: "Rewrap",
+                livePreview: "https://rewrap.vercel.app/",
+                github: "https://github.com/ajfred20/rewrap",
               },
             ].map((project, index) => (
               <div
@@ -226,7 +226,7 @@ export default function Home() {
                       href={project.livePreview}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-colors"
+                      className="inline-flex items-center bg-white text-black px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors"
                     >
                       <EyeIcon className="w-5 h-5 mr-2" />
                       Live Demo
@@ -235,7 +235,7 @@ export default function Home() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-colors border border-white"
+                      className="inline-flex items-center bg-black text-white px-6 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors border border-white"
                     >
                       <Github className="w-5 h-5 mr-2" />
                       GitHub
@@ -244,6 +244,67 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center text-center mt-32 relative">
+          <h1 className="text-5xl font-bold tracking-[-0.02em] flex items-center justify-center gap-2">
+            What People <span className="font-fancy">Say</span>
+          </h1>
+          <p className="text-sm font-medium tracking-tight flex items-center justify-center">
+            My clients trust me
+          </p>
+
+          <div className="relative w-full max-w-3xl mx-auto h-[400px]">
+            {/* Center text */}
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <h2 className="text-4xl font-bold max-w-xl">
+                Because i know how important it is to{" "}
+                <span className="text-gradient font-fancy">Connect</span> with
+                people you care
+              </h2>
+            </div>
+
+            {/* Floating avatars with chat bubbles */}
+            <div className="absolute top-1/4 right-20">
+              <Image
+                src="/assets/2.svg"
+                alt="Avatar"
+                width={60}
+                height={60}
+                className="rounded-full mb-2"
+              />
+            </div>
+
+            <div className="absolute bottom-20 left-10">
+              <Image
+                src="/assets/3.svg"
+                alt="Avatar"
+                width={60}
+                height={60}
+                className="rounded-full"
+              />
+            </div>
+
+            <div className="absolute right-1/4 bottom-24">
+              <Image
+                src="/assets/4.svg"
+                alt="Avatar"
+                width={60}
+                height={60}
+                className="rounded-full"
+              />
+            </div>
+
+            <div className="absolute left-1/3 top-1/4 z-10">
+              <Image
+                src="/assets/1.svg"
+                alt="Avatar"
+                width={60}
+                height={60}
+                className="rounded-full"
+              />
+            </div>
           </div>
         </div>
       </main>
