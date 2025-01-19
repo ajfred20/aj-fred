@@ -12,6 +12,7 @@ import {
   FolderClosed,
   ImageIcon,
   ChevronDown,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import BlurMenu from "../components/BlurMenu";
@@ -26,13 +27,12 @@ export default function Home() {
       {/* Header */}
       <header className="hidden lg:flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
+          <button
             onClick={() => setIsMenuOpen(true)}
-            className="hover:opacity-80 bg-gray-100 rounded-full"
+            className="hover:opacity-80"
           >
             <ChevronDown className="w-6 h-6" />
-          </Button>
+          </button>
           <div className="flex items-center gap-3">
             <Image
               src="/assets/fred.jpg"
@@ -113,7 +113,7 @@ export default function Home() {
             className="rounded-full mb-8"
           />
 
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-5xl font-bold mb-4 tracking-[-0.02em]">
             Hey, I'm Aj Fred.
             <br />
             <span className="text-gradient">Dreamer</span>, Developer &{" "}
@@ -147,6 +147,16 @@ export default function Home() {
               Available for new project
             </div>
           </div>
+        </div>
+        <div className="flex flex-col items-center text-center mt-12">
+          <h1 className="text-5xl font-bold mb-4 tracking-[-0.02em] flex items-center justify-center gap-2">
+            Some of My <span className="font-fancy">Works</span>
+          </h1>
+
+          <p className="text-gray-600 mb-8 max-w-xl">
+            Check out some of my passion projects born with the energy from my
+            Heart🩷, Brain🧠 & Spirit🌀
+          </p>
         </div>
       </main>
     </div>
