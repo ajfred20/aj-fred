@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,74 +11,65 @@ import {
   User,
   FolderClosed,
   ImageIcon,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
+import BlurMenu from "../components/BlurMenu";
 
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/assets/fred.jpg"
-            alt="Profile"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <div>
-            <h2 className="font-medium">Aj Fred</h2>
-            <p className="text-sm text-muted-foreground">Frontend Developer</p>
+      <header className="hidden lg:flex items-center justify-between px-6 py-4">
+        <div className="flex items-center gap-4">
+          <Button
+            variant="ghost"
+            onClick={() => setIsMenuOpen(true)}
+            className="hover:opacity-80 bg-gray-100 rounded-full"
+          >
+            <ChevronDown className="w-6 h-6" />
+          </Button>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/assets/fred.jpg"
+              alt="Profile"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <div>
+              <h2 className="font-medium">Aj Fred</h2>
+              <p className="text-sm text-muted-foreground">
+                Frontend Developer
+              </p>
+            </div>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="font-medium">
-            Home
+        <nav className="flex items-center gap-6">
+          <Link href="/twitter">
+            <Twitter />
+          </Link>
+          <Link href="/instagram">
+            <Linkedin />
+          </Link>
+          <Link href="" className="hover:opacity-80">
+            <Github />
           </Link>
           <Link
-            href="/about"
-            className="text-muted-foreground hover:text-foreground"
+            href="/contact"
+            className="bg-black text-white px-4 py-2 rounded-full text-sm hover:opacity-90"
           >
-            About
-          </Link>
-          <Link
-            href="/projects"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/highlights"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Highlights
+            Book a Call
           </Link>
         </nav>
-
-        <div className="flex items-center gap-4">
-          <Link
-            href="https://x.com/iamajfred_"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Twitter className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://github.com/ajfred20"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Github className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/fred-aj/"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Linkedin className="w-5 h-5" />
-          </Link>
-        </div>
       </header>
+
+      <BlurMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 flex justify-around items-center z-10">
         <Link
@@ -110,89 +103,51 @@ export default function Home() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <div className="flex flex-col gap-4 mb-3">
-          <div className="inline-flex items-center gap-2 bg-green-50 text-green-800 px-4 py-2 rounded-full w-fit">
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-            </span>
-            Available for Gigs
-          </div>
-        </div>
+      <main className="max-w-3xl mx-auto px-4 pt-20">
+        <div className="flex flex-col items-center text-center">
+          <Image
+            src="/assets/fred.jpg"
+            alt="Profile"
+            width={120}
+            height={120}
+            className="rounded-full mb-8"
+          />
 
-        <h1 className="text-5xl font-bold mb-12">
-          That <span className="text-gradient">Supercracked</span> <br />
-          Frontend Developer.
-        </h1>
+          <h1 className="text-5xl font-bold mb-4">
+            Hey, I'm Aj Fred.
+            <br />
+            <span className="text-gradient">Dreamer</span>, Developer &{" "}
+            <Image
+              src="/figma.svg"
+              alt="Figma"
+              width={52}
+              height={52}
+              className="inline-flex rounded-lg mx-1"
+            />{" "}
+            Designer
+          </h1>
 
-        <p className="text-lg mb-6">
-          I am Udalric Aj Fred A Frontend Web Developer With 3+ years experince.{" "}
-          <br />I create amazing programs that drag attention. Creator of
-        </p>
-
-        <div className="flex flex-wrap gap-4 mb-12">
-          {["Canvax", "Luro", "Linkify", "Collocate"].map((project) => (
-            <Link
-              key={project}
-              href={`/projects?project=${project.toLowerCase()}`}
-              className="text-blue-600 hover:text-blue-700 flex items-center gap-1"
-            >
-              {project}
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          ))}
-        </div>
-
-        <p className="text-lg mb-8">
-          Frontend Engineer - Crafting Amazing Websites & Engaging User
-          Interfaces, Bringing <br />
-          Africa forward in the tech space.
-        </p>
-
-        <p className="text-lg mb-12">
-          I Belive That great things can come from a small place.
-        </p>
-
-        <Link href="https://x.com/iamajfred_">
-          <Button variant="outline">
-            My Profile <ArrowUpRight className="w-4 h-4 ml-2" />
-          </Button>
-        </Link>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-medium mt-3">Contact Me.</h2>
-          <p className="text-muted-foreground mb-4">
-            Reach out to me{" "}
-            <Link
-              href="mailto:ajfred2008@gmail.com"
-              className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
-            >
-              ajfred2008@gmail.com <ArrowUpRight className="w-4 h-4" />
-            </Link>
+          <p className="text-gray-600 mb-8 max-w-xl">
+            Crafting seamless experiences and bold visuals. High school student
+            by day, creative thinker, and aspiring innovator by 🌙 night.
           </p>
 
           <div className="flex gap-4">
             <Link
-              href="https://github.com/ajfred20"
-              className="text-foreground hover:text-blue-600"
+              href="/contact"
+              className="bg-black text-white px-6 py-3 rounded-full hover:opacity-90"
             >
-              Github <ArrowUpRight className="w-4 h-4 inline" />
+              Book a Call
             </Link>
-            <Link
-              href="https://www.linkedin.com/in/fred-aj/"
-              className="text-foreground hover:text-blue-600"
-            >
-              Linkedin <ArrowUpRight className="w-4 h-4 inline" />
-            </Link>
-            <Link
-              href="https://x.com/iamajfred_"
-              className="text-foreground hover:text-blue-600"
-            >
-              Twitter <ArrowUpRight className="w-4 h-4 inline" />
-            </Link>
+            <div className="flex items-center gap-2 bg-green-50 text-green-800 px-6 py-3 rounded-full">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              Available for new project
+            </div>
           </div>
-        </section>
+        </div>
       </main>
     </div>
   );
