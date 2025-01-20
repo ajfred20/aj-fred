@@ -29,19 +29,26 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const templateParams = {
+      from_name: formData.get("from_name"),
+      from_email: formData.get("from_email"),
+      message: formData.get("message"),
+    };
 
     try {
-      const result = await emailjs.sendForm(
-        "service_6jzme7g", // Replace with your EmailJS service ID
-        "template_s9qz4eo", // Replace with your EmailJS template ID
-        form,
-        "PzeejNvHRD0SfQ0JE" // Replace with your EmailJS public key
+      const result = await emailjs.send(
+        "service_6jzme7g", // Your service ID
+        "template_s9qz4eo", // Your template ID
+        templateParams,
+        "PzeejNvHRD0SfQ0JE" // Your public key
       );
 
       if (result.text === "OK") {
         toast({
-          title: "Message sent successfully!",
-          description: "Thanks for reaching out. I'll get back to you soon.",
+          title: "Message sent successfully!🫶🏽🩷",
+          description: `Thanks for reaching out, ${templateParams.from_name}. I'll get back to you soon.💖`,
         });
         form.reset();
       }
@@ -84,18 +91,18 @@ export default function Home() {
         </div>
 
         <nav className="flex items-center gap-6">
-          <Link href="/twitter">
+          <Link href="https://x.com/iamajfred_">
             <Twitter />
           </Link>
-          <Link href="/instagram">
+          <Link href="https://www.linkedin.com/in/fred-aj/">
             <Linkedin />
           </Link>
-          <Link href="" className="hover:opacity-80">
+          <Link href="https://github.com/ajfred20" className="hover:opacity-80">
             <Github />
           </Link>
           <Link
-            href="/contact"
-            className="bg-black text-white px-4 py-2 rounded-full text-sm hover:opacity-90"
+            href="#contact"
+            className="bg-black text-white px-6 py-3 rounded-full hover:opacity-90 scroll-smooth"
           >
             Book a Call
           </Link>
@@ -149,7 +156,8 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-4 tracking-[-0.02em]">
             Hey, I&apos;m Aj Fred.
             <br />
-            <span className="text-gradient">Dreamer</span> , Developer &{" "}
+            <span className="text-gradient font-fancy">Dreamer </span>,
+            Developer &{" "}
             <Image
               src="/figma.svg"
               alt="Figma"
@@ -167,8 +175,8 @@ export default function Home() {
 
           <div className="flex gap-4">
             <Link
-              href="/contact"
-              className="bg-black text-white px-6 py-3 rounded-full hover:opacity-90"
+              href="#contact"
+              className="bg-black text-white px-6 py-3 rounded-full hover:opacity-90 scroll-smooth"
             >
               Book a Call
             </Link>
@@ -340,7 +348,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center text-center mt-32 mb-20">
+        <div
+          id="contact"
+          className="flex flex-col items-center text-center mt-20 mb-20"
+        >
           <h1 className="text-5xl font-bold tracking-[-0.02em] flex items-center justify-center gap-2">
             Get in touch
           </h1>
@@ -389,6 +400,24 @@ export default function Home() {
             </button>
           </form>
         </div>
+
+        {/* Footer Section */}
+        <footer className="bg-white text-black py-16 mt-20">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="border-t border-gray-400 w-full mt-12 pt-8 group">
+              <p className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} by{" "}
+                <a
+                  href="https://x.com/iamajfred_"
+                  className="hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-blue-500 hover:text-transparent hover:bg-clip-text hover:animate-gradient transition-all duration-300"
+                >
+                  Aj Fred
+                </a>
+                . All rights reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
