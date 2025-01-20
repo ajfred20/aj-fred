@@ -17,11 +17,43 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import BlurMenu from "../components/BlurMenu";
+import { useToast } from "../hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_6jzme7g", // Replace with your EmailJS service ID
+        "template_s9qz4eo", // Replace with your EmailJS template ID
+        form,
+        "PzeejNvHRD0SfQ0JE" // Replace with your EmailJS public key
+      );
+
+      if (result.text === "OK") {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem sending your message.",
+      });
+      console.error("EmailJS error:", error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -251,7 +283,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold tracking-[-0.02em] flex items-center justify-center gap-2">
             What People <span className="font-fancy">Say</span>
           </h1>
-          <p className="text-sm font-medium tracking-tight flex items-center justify-center">
+          <p className="text-gray-600 -mb-3 max-w-xl font-fancy text-2xl">
             My clients trust me
           </p>
 
@@ -266,7 +298,7 @@ export default function Home() {
             </div>
 
             {/* Floating avatars with chat bubbles */}
-            <div className="absolute top-1/4 right-20">
+            <div className="absolute top-16 right-20 z-10">
               <Image
                 src="/assets/2.svg"
                 alt="Avatar"
@@ -276,7 +308,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="absolute bottom-20 left-10">
+            <div className="absolute bottom-20 left-10 z-10">
               <Image
                 src="/assets/3.svg"
                 alt="Avatar"
@@ -286,7 +318,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="absolute right-1/4 bottom-24">
+            <div className="absolute right-1/4 bottom-24 z-10">
               <Image
                 src="/assets/4.svg"
                 alt="Avatar"
@@ -306,6 +338,56 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col items-center text-center mt-32 mb-20">
+          <h1 className="text-5xl font-bold tracking-[-0.02em] flex items-center justify-center gap-2">
+            Get in touch
+          </h1>
+
+          <p className="text-gray-600 mt-4 mb-8 max-w-xl">
+            I'm always interested in exploring new opportunities, collaborating,
+            or exchanging ideas with like-minded individuals. Feel free to book
+            a call or email me if you'd like to see my portfolio deck or to
+            discuss a potential project.
+          </p>
+
+          <form
+            onSubmit={handleSubmit}
+            className="w-full max-w-2xl mx-auto space-y-6"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="from_name"
+                placeholder="Full Name"
+                className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <input
+                type="email"
+                name="from_email"
+                placeholder="Email Address"
+                className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div>
+
+            <textarea
+              name="message"
+              placeholder="Write your Message"
+              rows={6}
+              className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+
+            <button
+              type="submit"
+              className="w-full bg-black text-white py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </main>
     </div>
