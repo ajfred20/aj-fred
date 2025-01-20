@@ -113,7 +113,7 @@ export default function Highlights() {
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 mb-20 md:mb-0">
         <h1 className="text-5xl font-bold text-center mb-4">
-          My <span className="text-gradient">2024</span> in style{" "}
+          My <span className="text-gradient font-fancy">2024</span> in style{" "}
         </h1>
 
         <p className="text-center text-muted-foreground mb-12">
