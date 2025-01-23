@@ -5,3 +5,5 @@ Components Included:
 Highlights Page, <br/>
 Preloader & <br/> 
 An activity badge
+
+Link to portfolio is [here](https://ajfred.vercel.app)
