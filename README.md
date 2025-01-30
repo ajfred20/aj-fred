@@ -1,12 +1,12 @@
 # My Portfolio - V2⚡✨
 
-![Chimly Preview](https://raw.githubusercontent.com/ajfred20/chimly/main/public/assets/preview.png)
+![Portfolio Preview](https://raw.githubusercontent.com/ajfred20/chimly/main/public/assets/preview.png)
 
 > 🌟 A modern portfolio website built with Next.js 15, Tailwind CSS, and Framer Motion
 
 ## 🔴 Live Preview
 
-Check out the live site at [AJ Fred](https://ajfred.vercel.app)
+Check out the live site at [Aj Fred](https://ajfred.vercel.app)
 
 ## ✨ Features
 
