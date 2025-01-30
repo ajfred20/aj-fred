@@ -1,4 +1,4 @@
-# My portfolio - V2⚡✨
+# My Portfolio - V2⚡✨
 
 ![Chimly Preview](https://raw.githubusercontent.com/ajfred20/chimly/main/public/assets/preview.png)
 
@@ -26,8 +26,8 @@ After cloning the repository, navigate to the `app` folder and edit the `page.ts
 To get started, clone the repository using the following command:
 
 ```bash
-git clone https://github.com/ajfred20/chimly.git
-cd chimly
+git clone https://github.com/ajfred20/aj-fred.git
+cd aj-fred
 ```
 
 ### Install Dependencies
