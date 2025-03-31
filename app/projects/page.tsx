@@ -42,7 +42,7 @@ const PROJECTS = [
     description: "Collocate is a file organization and project management app.",
     tags: ["Vue", "Nuxt"],
     type: "Vue",
-    link: "https://collocate.vercel.app/",
+    link: "https://ajfred.vercel.app",
   },
   {
     title: "Canvax",
