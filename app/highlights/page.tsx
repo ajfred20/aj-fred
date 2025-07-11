@@ -167,11 +167,6 @@ export default function Highlights() {
                   alt: "Coding Session",
                   caption: "👀",
                 },
-                {
-                  src: "/assets/4.jpg?height=400&width=400",
-                  alt: "Award Ceremony",
-                  caption: "Do Not View",
-                },
               ].map((image, index) => (
                 <div
                   key={index}
