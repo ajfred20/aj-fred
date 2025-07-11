@@ -153,7 +153,7 @@ export default function Home() {
             className="rounded-full mb-6 lg:mb-8 w-24 h-24 lg:w-32 lg:h-32"
           />
 
-          <h1 className="text-3xl lg:text-5xl font-bold mb-4 tracking-[-0.02em]">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
             Hey, I&apos;m Aj Fred.
             <br />
             <span className="text-gradient font-fancy">Dreamer </span>,
@@ -168,7 +168,7 @@ export default function Home() {
             Designer
           </h1>
 
-          <p className="text-sm lg:text-base text-gray-600 mb-6 lg:mb-8 max-w-xl">
+          <p className="text-sm lg:text-base text-gray-600 mb-6 lg:mb-8 max-w-xl tracking-tight">
             Crafting seamless experiences and bold visuals. High school student
             by day, creative thinker, and aspiring innovator by 🌙 night.
           </p>
