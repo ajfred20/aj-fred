@@ -16,7 +16,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ProjectCard } from "../../components/ui/project-card";
+import ProjectCard from "../../components/ui/project-card";
 
 const FILTERS = ["All", "Webpage", "React", "Web App", "Vue"];
 
