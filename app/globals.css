@@ -1,5 +1,6 @@
-@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/inter");
 @import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -74,8 +75,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: "Satoshi", sans-serif;
+    @apply bg-black text-white;
+    font-family: "Manrope", sans-serif;
     font-weight: 400;
   }
 

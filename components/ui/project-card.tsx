@@ -1,36 +1,48 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  tags: string[];
+  imageSrc: string;
   link: string;
+  website?: string;
 }
 
 export function ProjectCard({
   title,
   description,
-  tags,
+  imageSrc,
   link,
+  website,
 }: ProjectCardProps) {
   return (
-    <div className="p-6 border rounded-lg">
-      <h3 className="text-xl font-medium mb-2">{title}</h3>
-      <p className="text-muted-foreground mb-4">{description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {tags.map((tag) => (
-          <span key={tag} className="px-2 py-1 text-sm bg-muted rounded-full">
-            {tag}
-          </span>
-        ))}
+    <div className="relative group overflow-hidden rounded-lg bg-neutral-900 hover:bg-neutral-800 transition-all duration-300">
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
+        <Image 
+          src={imageSrc} 
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute top-2 right-2 z-10 flex gap-1">
+          {website && (
+            <Link 
+              href={website} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-black/50 backdrop-blur-sm p-1.5 rounded-full hover:bg-black/70 transition-colors"
+            >
+              <ArrowUpRight className="w-4 h-4 text-white" />
+            </Link>
+          )}
+        </div>
       </div>
-      <Link
-        href={link}
-        className="inline-flex items-center text-sm hover:text-blue-600"
-      >
-        Visit Project <ArrowUpRight className="w-4 h-4 ml-1" />
-      </Link>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold tracking-tighter text-white">{title}</h3>
+        <p className="text-sm font-normal tracking-tight text-gray-400 mt-1">{description}</p>
+      </div>
     </div>
   );
 }

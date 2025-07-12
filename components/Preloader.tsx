@@ -96,17 +96,17 @@ export default function Preloader() {
             animate="visible"
           >
             <motion.h1
-              className="text-3xl md:text-5xl text-white font-bold"
+              className="text-3xl md:text-5xl text-white font-semibold tracking-tighter"
               variants={textVariants}
             >
               <TypewriterText text="Hey there! I'm Aj Fred" delay={2000} />
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-3xl text-gray-300"
+              className="text-xl md:text-3xl text-gray-300 font-normal tracking-tight"
               variants={textVariants}
             >
-              <TypewriterText text="And Welcome to my domain..." delay={3000} />
+              <TypewriterText text="Welcome to my portfolio..." delay={3000} />
             </motion.p>
 
             <motion.p
