@@ -117,11 +117,14 @@ export default function About() {
                   Feb 2025 - Present
                 </span>
                 <p className="text-neutral-400 text-sm tracking-tighter text-justify">
-                  Developed wireframes and prototypes for user testing and
-                  qualitative research. Designed information architecture and
-                  led design thinking sessions to map out UX flows. Created high
-                  fidelity mockups for the iOS and Android app, completed with a
-                  tutorial during the onboarding process.
+                  Led the development of key frontend pages including home,
+                  about, projects, and highlights sections with responsive
+                  layouts. Architected and implemented the AI interface with
+                  real-time interactions, chat functionality, and dynamic
+                  content generation. Optimized component reusability across the
+                  application and ensured cross-browser compatibility while
+                  maintaining a consistent design system throughout the
+                  platform.
                 </p>
               </div>
               <div className="mt-8">
@@ -148,34 +151,27 @@ export default function About() {
               <div className="divide-y divide-neutral-800">
                 <div className="flex justify-between items-center py-3">
                   <span className="text-white text-base tracking-tight">
-                    Awwwards, Site of the Day
+                    React, Site Of The Day
                   </span>
                   <span className="text-neutral-400 text-sm tracking-tight">
-                    May 2023
+                    Nov 2024
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white text-base tracking-tight">
+                    Young Developer of the Year
+                  </span>
+                  <span className="text-neutral-400 text-sm tracking-tight">
+                    Sep 2023
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-3">
                   <span className="text-white text-base tracking-tight">
-                    DWA, Website of the Day
+                    The Honoured One
                   </span>
                   <span className="text-neutral-400 text-sm tracking-tight">
-                    Jan 2023
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white text-base tracking-tight">
-                    Scutvel
-                  </span>
-                  <span className="text-neutral-400 text-sm tracking-tight">
-                    May 2023
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white text-base tracking-tight">
-                    Puscas Awards
-                  </span>
-                  <span className="text-neutral-400 text-sm tracking-tight">
-                    May 2022
+                    Apr 2023
                   </span>
                 </div>
               </div>
@@ -203,24 +199,16 @@ export default function About() {
                   </div>
                   <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
                     <Image
-                      src="/tools/blender.svg"
-                      alt="Blender"
+                      src="/tools/cursor.png"
+                      alt="Cursor"
                       width={40}
                       height={40}
                     />
                   </div>
-                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                  <div className="bg-white rounded-lg p-3 flex items-center justify-center">
                     <Image
                       src="/tools/photoshop.svg"
                       alt="Photoshop"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
-                    <Image
-                      src="/tools/premiere.svg"
-                      alt="Premiere"
                       width={40}
                       height={40}
                     />

@@ -1,0 +1,151 @@
+"use client";
+import { useState, useEffect } from "react";
+import {
+  Mail,
+  Facebook,
+  Instagram,
+  Dribbble,
+  Sparkles,
+  Link as LinkIcon,
+  ImageIcon,
+  HomeIcon,
+  User,
+  FolderClosed,
+  Check,
+  Copy,
+} from "lucide-react";
+import Link from "next/link";
+import { toast } from "sonner";
+
+export default function ContactPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText("ajfred2008@gmail.com");
+      toast.success("Email copied to clipboard!", {
+        position: "bottom-center",
+        duration: 2000,
+      });
+    } catch (error) {
+      console.error("Failed to copy email:", error);
+      toast.error("Failed to copy email", {
+        position: "bottom-center",
+        duration: 2000,
+      });
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen bg-black">
+      <aside
+        className={`${
+          isMobile ? "hidden" : "w-[240px]"
+        } border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col`}
+      >
+        <div className="mb-10">
+          <h1 className="text-lg font-semibold tracking-tight">Aj Fred</h1>
+          <p className="text-sm text-neutral-400">Fullstack Developer</p>
+        </div>
+
+        <nav className="flex-1 space-y-1">
+          <Link
+            href="/"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <HomeIcon className="w-4 h-4 mr-3" />
+            <span className="text-sm">Home</span>
+          </Link>
+          <Link
+            href="/works"
+            className="flex items-center justify-between py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <div className="flex items-center">
+              <FolderClosed className="w-4 h-4 mr-3" />
+              <span className="text-sm">Works</span>
+            </div>
+            <span className="bg-neutral-800 text-xs px-2 py-0.5 rounded-full">
+              12
+            </span>
+          </Link>
+          <Link
+            href="/about"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <User className="w-4 h-4 mr-3" />
+            <span className="text-sm">About me</span>
+          </Link>
+          <Link
+            href="/explorations"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <Sparkles className="w-4 h-4 mr-3" />
+            <span className="text-sm">Explorations</span>
+          </Link>
+          <Link
+            href="/contact"
+            className="flex items-center py-2 px-3 rounded-md bg-neutral-900 text-white"
+          >
+            <ImageIcon className="w-4 h-4 mr-3" />
+            <span className="text-sm">Contact me</span>
+          </Link>
+        </nav>
+      </aside>
+      <main className="flex-1 flex flex-col items-center justify-start pt-8">
+        <div className="w-full max-w-xl">
+          <div className="rounded-xl bg-neutral-900 px-6 py-3 mb-8 flex items-center justify-between">
+            <h2 className="text-lg font-medium text-white">Contact me</h2>
+            <div className="flex gap-3 text-neutral-400">
+              <a href="#" aria-label="Facebook">
+                <Facebook className="w-5 h-5 hover:text-white" />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <Instagram className="w-5 h-5 hover:text-white" />
+              </a>
+              <a href="#" aria-label="Dribbble">
+                <Dribbble className="w-5 h-5 hover:text-white" />
+              </a>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-neutral-900/80 px-8 py-12 flex flex-col items-center shadow-lg">
+            <span className="text-neutral-400 text-base mb-4">
+              Send me an email
+            </span>
+            <h3 className="text-2xl font-semibold text-white text-center mb-8">
+              Would you like to hire me?
+              <br />
+              send me an email
+            </h3>
+            <div className="bg-black rounded-lg px-6 py-4 flex items-center justify-center">
+              <span className="text-2xl font-semibold tracking-tighter text-white select-all">
+                ajfred2008@gmail.com
+              </span>
+              <button
+                className="ml-3 p-2 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                title="Copy email"
+                onClick={handleCopyEmail}
+              >
+                <Copy className="w-6 h-6" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
