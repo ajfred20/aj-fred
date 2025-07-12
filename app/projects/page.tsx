@@ -211,7 +211,12 @@ export default function Projects() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
+            <ProjectCard
+              image={""}
+              subtitle={""}
+              key={project.title}
+              {...project}
+            />
           ))}
         </div>
 

@@ -111,12 +111,12 @@ export default function About() {
               </div>
               <div className="mt-4">
                 <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
-                  Lead UX and Product Designer at Vault Hill
+                  Lead Frontend Developer at Chimly
                 </h4>
                 <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
-                  Nov 2021 - Present
+                  Feb 2025 - Present
                 </span>
-                <p className="text-neutral-400 text-sm tracking-tight text-justify">
+                <p className="text-neutral-400 text-sm tracking-tighter text-justify">
                   Developed wireframes and prototypes for user testing and
                   qualitative research. Designed information architecture and
                   led design thinking sessions to map out UX flows. Created high
@@ -126,17 +126,19 @@ export default function About() {
               </div>
               <div className="mt-8">
                 <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
-                  Lead UX and Product Designer at Vault Hill
+                  Frontend Mechanic at Bucx
                 </h4>
                 <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
-                  Nov 2021 - Present
+                  Jan 2025 - Present
                 </span>
-                <p className="text-neutral-400 text-sm tracking-tight text-justify">
-                  Developed wireframes and prototypes for user testing and
-                  qualitative research. Designed information architecture and
-                  led design thinking sessions to map out UX flows. Created high
-                  fidelity mockups for the iOS and Android app, completed with a
-                  tutorial during the onboarding process.
+                <p className="text-neutral-400 text-sm tracking-tighter text-justify">
+                  Designed and developed the main landing page with responsive
+                  layouts and interactive elements to improve user engagement.
+                  Built a comprehensive admin dashboard with data visualization,
+                  user management features, and real-time analytics. Implemented
+                  role-based access control and optimized dashboard performance
+                  for handling large datasets while maintaining a clean,
+                  intuitive interface.
                 </p>
               </div>
               <hr className="border-neutral-800 w-full my-8" />
@@ -227,21 +229,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="fixed bottom-8 right-8 z-50">
-          <button className="bg-neutral-800 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-xs">
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-              <circle
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-              <path d="M8 12l2 2 4-4" stroke="currentColor" strokeWidth="2" />
-            </svg>
-            Made in Framer
-          </button>
         </div>
       </main>
     </div>
