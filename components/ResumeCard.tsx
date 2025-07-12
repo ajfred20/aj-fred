@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 export default function ResumeCard() {
   return (
-    <div className="relative rounded-xl group w-[400px] h-[200px] bg-neutral-900 bg-gradient-to-br from-neutral-900 to-neutral-800">
-      <div className="absolute inset-0 bg-[url('/assets/resume.png')] bg-cover bg-center opacity-20"></div>
+    <div className="relative rounded-2xl group w-[400px] h-[200px] bg-neutral-900 bg-gradient-to-br from-neutral-900 to-neutral-800">
+      <div className="absolute inset-0 rounded-2xl bg-[url('/assets/resume.png')] bg-cover bg-center opacity-20"></div>
       <div className="absolute right-8 top-1/2 -translate-y-1/2 w-24 h-24 border-4 border-neutral-700 rounded-full opacity-70"></div>
       <div className="absolute inset-0 p-4 flex flex-col justify-end">
         <h3 className="text-lg font-medium tracking-tight">My Resume</h3>

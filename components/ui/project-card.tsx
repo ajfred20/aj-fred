@@ -1,48 +1,57 @@
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import React from "react";
 
 interface ProjectCardProps {
+  image: string;
   title: string;
-  description: string;
-  imageSrc: string;
-  link: string;
-  website?: string;
+  subtitle: string;
+  large?: boolean;
+  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export function ProjectCard({
+export default function ProjectCard({
+  image,
   title,
-  description,
-  imageSrc,
-  link,
-  website,
+  subtitle,
+  large = false,
+  onClick,
+  children,
 }: ProjectCardProps) {
   return (
-    <div className="relative group overflow-hidden rounded-lg bg-neutral-900 hover:bg-neutral-800 transition-all duration-300">
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
-        <Image 
-          src={imageSrc} 
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute top-2 right-2 z-10 flex gap-1">
-          {website && (
-            <Link 
-              href={website} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-black/50 backdrop-blur-sm p-1.5 rounded-full hover:bg-black/70 transition-colors"
-            >
-              <ArrowUpRight className="w-4 h-4 text-white" />
-            </Link>
-          )}
+    <div
+      className={`relative overflow-hidden rounded-xl bg-neutral-800 shadow-md ${
+        large ? "h-64" : "h-48"
+      } w-full group cursor-pointer`}
+      onClick={onClick}
+    >
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 33vw"
+      />
+      {large ? (
+        <div className="absolute bottom-0 left-0 w-full flex items-end justify-between p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+          <div>
+            <h3 className="text-white text-xl font-semibold mb-1 drop-shadow-lg">
+              {title}
+            </h3>
+            <p className="text-neutral-200 text-sm drop-shadow-lg">
+              {subtitle}
+            </p>
+          </div>
+          {children && <div className="flex gap-2 items-end">{children}</div>}
         </div>
-      </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold tracking-tighter text-white">{title}</h3>
-        <p className="text-sm font-normal tracking-tight text-gray-400 mt-1">{description}</p>
-      </div>
+      ) : (
+        <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/70 to-transparent">
+          <h3 className="text-white text-lg font-semibold mb-1 drop-shadow-lg">
+            {title}
+          </h3>
+          <p className="text-neutral-300 text-xs drop-shadow-lg">{subtitle}</p>
+        </div>
+      )}
     </div>
   );
 }

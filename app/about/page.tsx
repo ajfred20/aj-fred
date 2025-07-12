@@ -1,211 +1,248 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight,
-  Github,
-  Linkedin,
-  Twitter,
   HomeIcon,
-  User,
   FolderClosed,
+  User,
+  Sparkles,
   ImageIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-
 export default function About() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="flex items-center justify-between px-6 py-4">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/assets/fred.jpg"
-            alt="Profile"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <div>
-            <h2 className="font-medium">Aj Fred</h2>
-            <p className="text-sm text-muted-foreground">Frontend Developer</p>
-          </div>
+    <div className="flex min-h-screen bg-black">
+      <aside className="w-[240px] border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col">
+        <div className="mb-10">
+          <h1 className="text-lg font-semibold tracking-tighter">Aj Fred</h1>
+          <p className="text-sm text-neutral-400">Fullstack Developer</p>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/" className="font-medium">
-            Home
+        <nav className="flex-1 space-y-1">
+          <Link
+            href="/"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <HomeIcon className="w-4 h-4 mr-3" />
+            <span className="text-sm">Home</span>
+          </Link>
+          <Link
+            href="/works"
+            className="flex items-center justify-between py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          >
+            <div className="flex items-center">
+              <FolderClosed className="w-4 h-4 mr-3" />
+              <span className="text-sm">Works</span>
+            </div>
+            <span className="bg-neutral-800 text-xs px-2 py-0.5 rounded-full">
+              12
+            </span>
           </Link>
           <Link
             href="/about"
-            className="text-muted-foreground hover:text-foreground"
+            className="flex items-center py-2 px-3 rounded-md bg-neutral-900 text-white"
           >
-            About
+            <User className="w-4 h-4 mr-3" />
+            <span className="text-sm">About me</span>
           </Link>
           <Link
-            href="/projects"
-            className="text-muted-foreground hover:text-foreground"
+            href="/explorations"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
           >
-            Projects
+            <Sparkles className="w-4 h-4 mr-3" />
+            <span className="text-sm">Explorations</span>
           </Link>
           <Link
-            href="/highlights"
-            className="text-muted-foreground hover:text-foreground"
+            href="/contact"
+            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
           >
-            Highlights
+            <ImageIcon className="w-4 h-4 mr-3" />
+            <span className="text-sm">Contact me</span>
           </Link>
         </nav>
+      </aside>
 
-        <div className="flex items-center gap-4">
-          <Link
-            href="https://x.com/iamajfred_"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Twitter className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://github.com/ajfred20"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Github className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/fred-aj/"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Linkedin className="w-5 h-5" />
-          </Link>
-        </div>
-      </header>
-
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t p-4 flex justify-around items-center z-10">
-        <Link
-          href="/"
-          className="flex flex-col items-center gap-1 hover:text-blue-500"
-        >
-          <HomeIcon className="w-5 h-5" />
-          <span className="text-xs">Home</span>
-        </Link>
-        <Link
-          href="/about"
-          className="flex flex-col items-center gap-1 hover:text-blue-500"
-        >
-          <User className="w-5 h-5" />
-          <span className="text-xs">About</span>
-        </Link>
-        <Link
-          href="/projects"
-          className="flex flex-col items-center gap-1 hover:text-blue-500"
-        >
-          <FolderClosed className="w-5 h-5" />
-          <span className="text-xs">Projects</span>
-        </Link>
-        <Link
-          href="/highlights"
-          className="flex flex-col items-center gap-1 hover:text-blue-500"
-        >
-          <ImageIcon className="w-5 h-5" />
-          <span className="text-xs">Highlights</span>
-        </Link>
-      </nav>
-
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
-        <h1 className="text-5xl font-bold text-center mb-4">
-          <span className="text-gray-400 font-semibold text-center text-sm block mb-2">
-            Who am I?
-          </span>
-          Well I&apos;m Udalric Aj Fred
-        </h1>
-
-        <p className="text-center mb-12">
-          Founder @{" "}
-          <Link
-            href="https://waitlist-rydon.vercel.app"
-            className="text-blue-600 hover:text-blue-700 inline-flex items-center"
-          >
-            Rydon Africa <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </p>
-
-        <div className="grid md:grid-cols-[1fr_1.2fr] gap-6 md:gap-12 mb-12">
-          <div>
+      <main className="flex-1 flex flex-col items-center px-8 pt-10 pb-6">
+        <div className="w-full max-w-xl mx-auto">
+          <div className="rounded-xl bg-zinc-900 px-6 py-3 mb-6">
+            <h2 className="text-lg font-medium text-white">About me</h2>
+          </div>
+          <div className="rounded-xl bg-neutral-900 p-8 flex flex-col items-center">
             <Image
-              src="/assets/fred.jpg"
-              alt="Aj Fred"
-              width={600}
-              height={600}
-              className="rounded-full w-full"
+              src="/assets/echo.avif"
+              alt="Profile picture"
+              width={340}
+              height={220}
+              className="rounded-lg object-cover mb-6 w-full h-[220px]"
             />
-          </div>
-
-          <div className="space-y-6">
-            <p>
-              I am a Frontend Developer with over 3+ years of experience, i am
-              into web development with a focus on user interface designs and
-              frontend engineering.
+            <h1 className="text-2xl font-bold tracking-tighter text-white mb-1 w-full">
+              Udalric Aj Fred
+            </h1>
+            <p className="text-neutral-400 tracking-tight text-base mb-6 w-full">
+              Fullstack Developer & Product Designer
             </p>
-
-            <p>
-              I also build fullstack applications (Web Apps, PWAs). I craft
-              fast, seamless and scalable user interfaces.
+            <p className="text-neutral-300 text-sm mb-8 w-full">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque egestas commodo lectus vitae interdum. Phasellus eget
+              quam sit amet purus luctus elementum non a erat. Suspendisse ut
+              tempor lorem. Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Pellentesque egestas commodo lectus vitae interdum.
+              Phasellus eget quam sit amet purus luctus elementum non a erat.
+              Suspendisse ut tempor lorem.
             </p>
-
-            <p>
-              I am focused on creative detail and functionality. My goal is to
-              help others learn from and use the programs I create. I've built
-              web apps, webpages and programs. You can find all my projects on
-              GitHub,{" "}
-              <Link
-                href="https://github.com/ajfred20"
-                className="text-blue-600 hover:text-blue-700 inline-flex items-center"
-              >
-                Github - @ajfred20 <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </p>
-
-            <p>In my free time, I am a Graphics designer👀😂.</p>
-            <Link href="/projects">
-              <Button variant="outline" className="mt-4">
-                Projects <ArrowUpRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
+            <hr className="border-neutral-800 w-full mb-8" />
+            <div className="w-full">
+              <div className="flex justify-between items-center mb-1">
+                <h3 className="text-neutral-400 text-base tracking-tight font-medium">
+                  Experience
+                </h3>
+                <Link
+                  href="#"
+                  className="text-xs text-neutral-400 tracking-tight hover:text-white underline flex items-center gap-1"
+                >
+                  LinkedIn
+                  <svg width="12" height="12" fill="none" viewBox="0 0 24 24">
+                    <path
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      d="M7 17L17 7M7 7h10v10"
+                    />
+                  </svg>
+                </Link>
+              </div>
+              <div className="mt-4">
+                <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
+                  Lead UX and Product Designer at Vault Hill
+                </h4>
+                <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
+                  Nov 2021 - Present
+                </span>
+                <p className="text-neutral-400 text-sm tracking-tight text-justify">
+                  Developed wireframes and prototypes for user testing and
+                  qualitative research. Designed information architecture and
+                  led design thinking sessions to map out UX flows. Created high
+                  fidelity mockups for the iOS and Android app, completed with a
+                  tutorial during the onboarding process.
+                </p>
+              </div>
+              <div className="mt-8">
+                <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
+                  Lead UX and Product Designer at Vault Hill
+                </h4>
+                <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
+                  Nov 2021 - Present
+                </span>
+                <p className="text-neutral-400 text-sm tracking-tight text-justify">
+                  Developed wireframes and prototypes for user testing and
+                  qualitative research. Designed information architecture and
+                  led design thinking sessions to map out UX flows. Created high
+                  fidelity mockups for the iOS and Android app, completed with a
+                  tutorial during the onboarding process.
+                </p>
+              </div>
+              <hr className="border-neutral-800 w-full my-8" />
+              <h3 className="text-neutral-400 text-base tracking-tight font-medium mb-4">
+                Awards & Recognitions
+              </h3>
+              <div className="divide-y divide-neutral-800">
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white text-base tracking-tight">
+                    Awwwards, Site of the Day
+                  </span>
+                  <span className="text-neutral-400 text-sm tracking-tight">
+                    May 2023
+                  </span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white text-base tracking-tight">
+                    DWA, Website of the Day
+                  </span>
+                  <span className="text-neutral-400 text-sm tracking-tight">
+                    Jan 2023
+                  </span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white text-base tracking-tight">
+                    Scutvel
+                  </span>
+                  <span className="text-neutral-400 text-sm tracking-tight">
+                    May 2023
+                  </span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="text-white text-base tracking-tight">
+                    Puscas Awards
+                  </span>
+                  <span className="text-neutral-400 text-sm tracking-tight">
+                    May 2022
+                  </span>
+                </div>
+              </div>
+              <hr className="border-neutral-800 w-full my-8" />
+              <div className="rounded-xl bg-zinc-900 p-6 mt-6">
+                <h3 className="text-white text-lg font-semibold mb-4 tracking-tight">
+                  Tools and Stacks
+                </h3>
+                <div className="flex gap-4 flex-wrap justify-start">
+                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                    <Image
+                      src="/tools/framer.svg"
+                      alt="Framer"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                    <Image
+                      src="/tools/figma.svg"
+                      alt="Figma"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                    <Image
+                      src="/tools/blender.svg"
+                      alt="Blender"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                    <Image
+                      src="/tools/photoshop.svg"
+                      alt="Photoshop"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
+                    <Image
+                      src="/tools/premiere.svg"
+                      alt="Premiere"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-medium mt-3">Contact Me.</h2>
-          <p className="text-muted-foreground mb-4">
-            Reach out to me{" "}
-            <Link
-              href="mailto:ajfred2008@gmail.com"
-              className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
-            >
-              ajfred2008@gmail.com <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </p>
-
-          <div className="flex gap-4">
-            <Link
-              href="https://github.com/ajfred20"
-              className="text-foreground hover:text-blue-600"
-            >
-              Github <ArrowUpRight className="w-4 h-4 inline" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/fred-aj/"
-              className="text-foreground hover:text-blue-600"
-            >
-              Linkedin <ArrowUpRight className="w-4 h-4 inline" />
-            </Link>
-            <Link
-              href="https://x.com/iamajfred_"
-              className="text-foreground hover:text-blue-600"
-            >
-              Twitter <ArrowUpRight className="w-4 h-4 inline" />
-            </Link>
-          </div>
-        </section>
+        <div className="fixed bottom-8 right-8 z-50">
+          <button className="bg-neutral-800 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-xs">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <path d="M8 12l2 2 4-4" stroke="currentColor" strokeWidth="2" />
+            </svg>
+            Made in Framer
+          </button>
+        </div>
       </main>
     </div>
   );

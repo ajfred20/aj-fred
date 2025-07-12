@@ -1,28 +1,40 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ToolsCard() {
   const tools = [
-    { name: 'Figma', icon: '/tools/figma.svg' },
-    { name: 'Framer', icon: '/tools/framer.svg' },
+    { name: "Framer", icon: "/tools/framer.svg", color: "bg-white" },
+    { name: "Cursor", icon: "/tools/cursor.png", color: "bg-black" },
+    { name: "Figma", icon: "/tools/figma.svg", color: "bg-black" },
+    { name: "Photoshop", icon: "/tools/photoshop.svg", color: "bg-white" },
   ];
 
   return (
-    <div className="bg-neutral-900 rounded-lg overflow-hidden">
-      <div className="p-6">
-        <div className="flex flex-wrap gap-4">
-          {tools.map((tool) => (
-            <div key={tool.name} className="flex items-center justify-center w-12 h-12 bg-neutral-800 rounded-lg">
-              <div className="relative w-6 h-6">
-                <Image 
-                  src={tool.icon} 
+    <div className="col-span-3 bg-neutral-900 rounded-xl overflow-hidden">
+      <div className="p-4">
+        <h3 className="text-lg font-medium tracking-tight mb-3">Tools I Use</h3>
+        <div className="grid grid-cols-3 gap-2">
+          {tools.map((tool, index) => (
+            <div
+              key={tool.name}
+              className={`flex items-center justify-center aspect-square rounded-xl ${tool.color}`}
+            >
+              <div className="relative w-8 h-8">
+                <Image
+                  src={tool.icon}
                   alt={tool.name}
-                  width={24}
-                  height={24}
+                  fill
                   className="object-contain"
                 />
               </div>
             </div>
           ))}
+          <Link
+            href="/tools"
+            className="flex items-center justify-center aspect-square rounded-xl bg-neutral-800 hover:bg-neutral-700 transition-colors"
+          >
+            <span className="text-sm text-neutral-400">See all</span>
+          </Link>
         </div>
       </div>
     </div>
