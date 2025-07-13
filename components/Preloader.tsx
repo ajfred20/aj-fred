@@ -3,43 +3,17 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
+import confetti from "canvas-confetti";
 
-const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+const counterVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
     },
   },
-};
-
-const TypewriterText: React.FC<{ text: string; delay?: number }> = ({
-  text,
-  delay = 0,
-}) => {
-  const [displayedText, setDisplayedText] = useState("");
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      let currentIndex = 0;
-      const intervalId = setInterval(() => {
-        if (currentIndex <= text.length) {
-          setDisplayedText(text.slice(0, currentIndex));
-          currentIndex++;
-        } else {
-          clearInterval(intervalId);
-        }
-      }, 50);
-
-      return () => clearInterval(intervalId);
-    }, delay);
-
-    return () => clearTimeout(timeout);
-  }, [text, delay]);
-
-  return <span>{displayedText}</span>;
 };
 
 export default function Preloader() {
@@ -50,25 +24,30 @@ export default function Preloader() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 7000);
+    }, 3000); // Reduced from 7000ms to 3000ms for faster loading
   }, []);
 
   useEffect(() => {
-    const loadingDuration = 7000; // total loading time in milliseconds
-    const startTime = Date.now(); // record the start time
+    const loadingDuration = 3000; // Reduced total loading time
+    const startTime = Date.now();
 
     const intervalId = setInterval(() => {
-      const elapsedTime = Date.now() - startTime; // calculate elapsed time
+      const elapsedTime = Date.now() - startTime;
       const newStep = Math.min(
         Math.floor((elapsedTime / loadingDuration) * 100),
         100
-      ); // calculate percentage
-      setStep(newStep); // update step
+      );
+      setStep(newStep);
 
-      if (newStep >= 100) {
-        clearInterval(intervalId); // clear interval when loading is complete
+      if (newStep === 99) {
+        clearInterval(intervalId);
+
+        // Pause at 98% for a second
+        setTimeout(() => {
+          setStep(100);
+        }, 500);
       }
-    }, 100); // update every 100 milliseconds
+    }, 50); // Update more frequently for smoother counting
 
     return () => clearInterval(intervalId);
   }, [isLoading]);
@@ -81,6 +60,39 @@ export default function Preloader() {
     }
   }, [step, router]);
 
+  // Trigger confetti when the loader disappears
+  useEffect(() => {
+    if (!isLoading) {
+      // Trigger confetti from left side
+      confetti({
+        particleCount: 100,
+        spread: 90,
+        origin: { x: 0.1, y: 0.6 },
+        scalar: 1.5,
+        gravity: 1.2,
+      });
+
+      // Trigger confetti from right side
+      confetti({
+        particleCount: 100,
+        spread: 90,
+        origin: { x: 0.9, y: 0.6 },
+        scalar: 1.5,
+        gravity: 1.2,
+      });
+
+      // Add a big bang effect
+      confetti({
+        particleCount: 200,
+        spread: 180,
+        startVelocity: 45,
+        origin: { x: 0.5, y: 0.6 },
+        gravity: 1,
+        scalar: 2,
+      });
+    }
+  }, [isLoading]);
+
   return (
     <AnimatePresence>
       {isLoading && (
@@ -90,30 +102,19 @@ export default function Preloader() {
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
         >
           <motion.div
-            className="text-center space-y-6"
-            variants={textVariants}
+            className="text-center"
+            variants={counterVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.h1
-              className="text-3xl md:text-5xl text-white font-semibold tracking-tighter"
-              variants={textVariants}
-            >
-              <TypewriterText text="Hey there! I'm Aj Fred" delay={2000} />
-            </motion.h1>
-
             <motion.p
-              className="text-xl md:text-3xl text-gray-300 font-normal tracking-tight"
-              variants={textVariants}
+              className="text-8xl md:text-9xl lg:text-[10rem] font-semibold font-fancy tracking-tighter text-white"
+              key={step}
+              initial={{ scale: 0.8, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.2 }}
             >
-              <TypewriterText text="Welcome to my portfolio..." delay={3000} />
-            </motion.p>
-
-            <motion.p
-              className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-gray-300 absolute bottom-0 right-0 mb-4 mr-4"
-              variants={textVariants}
-            >
-              <span>{step}%</span>
+              {step}%
             </motion.p>
           </motion.div>
         </motion.div>

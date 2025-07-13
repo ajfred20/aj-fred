@@ -119,7 +119,11 @@ export default function Highlights() {
           </div>
 
           <h1 className="text-5xl font-bold text-center mb-4">
-            My <span className="text-gradient font-fancy">2024</span> in style{" "}
+            My{" "}
+            <span className="text-gradient font-fancy tracking-[-0.08em]">
+              2024
+            </span>{" "}
+            in style{" "}
           </h1>
 
           <p className="text-center text-muted-foreground mb-12">

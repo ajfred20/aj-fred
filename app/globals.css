@@ -1,5 +1,4 @@
 @import url("https://fonts.cdnfonts.com/css/inter");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 @tailwind base;
@@ -81,9 +80,8 @@
   }
 
   .font-fancy {
-    font-family: "Instrument Serif", serif;
+    font-family: "Inter", serif;
     font-weight: 400;
-    font-style: italic;
   }
 
   .text-gradient {
