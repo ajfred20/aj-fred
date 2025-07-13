@@ -84,11 +84,11 @@ export default function Home() {
             <span className="text-sm">About me</span>
           </Link>
           <Link
-            href="/explorations"
+            href="/Highlights"
             className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
           >
             <Sparkles className="w-4 h-4 mr-3" />
-            <span className="text-sm">Explorations</span>
+            <span className="text-sm">Highlights</span>
           </Link>
           <Link
             href="/contact"

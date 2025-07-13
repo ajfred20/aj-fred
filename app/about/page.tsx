@@ -45,11 +45,11 @@ export default function About() {
             <span className="text-sm">About me</span>
           </Link>
           <Link
-            href="/explorations"
+            href="/highlights"
             className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
           >
             <Sparkles className="w-4 h-4 mr-3" />
-            <span className="text-sm">Explorations</span>
+            <span className="text-sm">Highlights</span>
           </Link>
           <Link
             href="/contact"
@@ -81,13 +81,16 @@ export default function About() {
               Fullstack Developer & Product Designer
             </p>
             <p className="text-neutral-300 text-sm mb-8 w-full">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque egestas commodo lectus vitae interdum. Phasellus eget
-              quam sit amet purus luctus elementum non a erat. Suspendisse ut
-              tempor lorem. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Pellentesque egestas commodo lectus vitae interdum.
-              Phasellus eget quam sit amet purus luctus elementum non a erat.
-              Suspendisse ut tempor lorem.
+              Known as "The Honored One" among my peers, I've mastered the art
+              of frontend development through what many call my "limitless
+              techniques." Like a master swordsman wielding Bankai, I seamlessly
+              blend design and functionality to create digital experiences that
+              transcend ordinary boundaries. My approach draws inspiration from
+              the spiritual pressure of clean code and the Zanpakutō of modern
+              frameworks. When faced with complex challenges, I release my final
+              form—transforming impossible requirements into elegant solutions
+              that leave clients in awe of what's possible. This is not just
+              development; this is my way of the code.
             </p>
             <hr className="border-neutral-800 w-full mb-8" />
             <div className="w-full">
@@ -96,10 +99,11 @@ export default function About() {
                   Experience
                 </h3>
                 <Link
-                  href="#"
+                  href="https://github.com/ajfred20"
+                  target="_blank"
                   className="text-xs text-neutral-400 tracking-tight hover:text-white underline flex items-center gap-1"
                 >
-                  LinkedIn
+                  Github
                   <svg width="12" height="12" fill="none" viewBox="0 0 24 24">
                     <path
                       stroke="currentColor"

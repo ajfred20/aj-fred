@@ -13,12 +13,14 @@ import {
   FolderClosed,
   Check,
   Copy,
+  Menu,
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
 
 export default function ContactPage() {
   const [isMobile, setIsMobile] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -51,12 +53,30 @@ export default function ContactPage() {
     }
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <div className="flex min-h-screen bg-black">
+      {isMobile && (
+        <button
+          onClick={toggleSidebar}
+          className="fixed top-4 left-4 z-50 bg-neutral-800 p-2 rounded-md"
+          aria-label="Toggle sidebar"
+        >
+          <Menu className="w-5 h-5 text-white" />
+        </button>
+      )}
+
       <aside
         className={`${
-          isMobile ? "hidden" : "w-[240px]"
-        } border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col`}
+          isMobile
+            ? sidebarOpen
+              ? "fixed inset-y-0 left-0 z-40"
+              : "hidden"
+            : "w-[240px]"
+        } border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col bg-black`}
       >
         <div className="mb-10">
           <h1 className="text-lg font-semibold tracking-tight">Aj Fred</h1>
@@ -91,11 +111,11 @@ export default function ContactPage() {
             <span className="text-sm">About me</span>
           </Link>
           <Link
-            href="/explorations"
+            href="/Highlights"
             className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
           >
             <Sparkles className="w-4 h-4 mr-3" />
-            <span className="text-sm">Explorations</span>
+            <span className="text-sm">Highlights</span>
           </Link>
           <Link
             href="/contact"
