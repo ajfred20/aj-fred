@@ -21,6 +21,7 @@ import { toast } from "sonner";
 export default function ContactPage() {
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -40,15 +41,35 @@ export default function ContactPage() {
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText("ajfred2008@gmail.com");
+      // Show visual feedback instead of toast
+      setCopySuccess(true);
+      // Reset after 2 seconds
+      setTimeout(() => {
+        setCopySuccess(false);
+      }, 2000);
+
+      // Make toast more visible with higher z-index and longer duration
       toast.success("Email copied to clipboard!", {
-        position: "bottom-center",
-        duration: 2000,
+        position: "top-center",
+        duration: 3000,
+        style: {
+          zIndex: 9999,
+          background: "#333",
+          color: "white",
+          border: "1px solid #555",
+        },
       });
     } catch (error) {
       console.error("Failed to copy email:", error);
       toast.error("Failed to copy email", {
-        position: "bottom-center",
-        duration: 2000,
+        position: "top-center",
+        duration: 3000,
+        style: {
+          zIndex: 9999,
+          background: "#333",
+          color: "white",
+          border: "1px solid #555",
+        },
       });
     }
   };
@@ -59,6 +80,12 @@ export default function ContactPage() {
 
   return (
     <div className="flex min-h-screen bg-black">
+      {/* Toast container with higher z-index */}
+      <div
+        id="sonner-toast-container"
+        className="fixed top-4 right-4 z-[9999]"
+      />
+
       {isMobile && (
         <button
           onClick={toggleSidebar}
@@ -156,11 +183,20 @@ export default function ContactPage() {
                 ajfred2008@gmail.com
               </span>
               <button
-                className="ml-3 p-2 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                className="ml-3 p-2 rounded bg-neutral-800 hover:bg-neutral-700 transition-colors relative"
                 title="Copy email"
                 onClick={handleCopyEmail}
               >
-                <Copy className="w-6 h-6" />
+                {copySuccess ? (
+                  <Check className="w-6 h-6 text-green-500" />
+                ) : (
+                  <Copy className="w-6 h-6" />
+                )}
+                {copySuccess && (
+                  <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-neutral-800 tracking-tighter text-white text-xs py-1 px-2 rounded">
+                    Copied!
+                  </div>
+                )}
               </button>
             </div>
           </div>

@@ -102,23 +102,7 @@ export default function Highlights() {
       {/* Main Content */}
       <main className="flex-1 px-4 sm:px-6 py-6 sm:py-10 mb-20 md:mb-0">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <h2 className="text-4xl text-center tracking-tighter font-medium text-white mb-4">
-              Templates For Sale
-            </h2>
-            <div className="flex flex-wrap gap-6 justify-center">
-              <HighlightCard
-                image="/assets/green.png"
-                title="Chimly"
-                price="$2,999"
-                description="AI Poowered Product Manager and Intelligent Task Handler"
-                tags={["Top Pick", "Fully Working"]}
-                buttonText="Get Now"
-              />
-            </div>
-          </div>
-
-          <h1 className="text-5xl font-bold text-center mb-4">
+          <h1 className="text-5xl font-semibold tracking-tighter text-center mb-4">
             My{" "}
             <span className="text-gradient font-fancy tracking-[-0.08em]">
               2024
@@ -196,6 +180,29 @@ export default function Highlights() {
                 ))}
               </div>
             </section>
+            <div className="mb-8">
+              <h2 className="text-4xl text-center tracking-tight font-medium text-white mb-4">
+                Some of My Templates
+              </h2>
+              <div className="flex flex-wrap gap-6 justify-center">
+                <HighlightCard
+                  image="/assets/green.png"
+                  title="Chimly"
+                  price="$299"
+                  description="AI Powered Product Manager and Intelligent Task Handler"
+                  tags={["Top Pick", "Fully Working"]}
+                  buttonText="Get Now"
+                />
+                <HighlightCard
+                  image="/assets/echo.avif"
+                  title="Maison"
+                  price="$199"
+                  description="Furniture E-commerce Store for luxury homes, hotels and offices."
+                  tags={["Top Pick", "Fully Working"]}
+                  buttonText="Get Now"
+                />
+              </div>
+            </div>
 
             {/* Favorite Spotify Playlists */}
             <section>
@@ -208,7 +215,7 @@ export default function Highlights() {
                 <div className="aspect-video rounded-lg overflow-hidden bg-black">
                   <iframe
                     className="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4WYpdgoIcn6?utm_source=generator"
+                    src="https://open.spotify.com/embed/playlist/6O1ZLAZfwV6vO9SD8xP7hx?utm_source=generator"
                     width="100%"
                     height="352"
                     frameBorder="0"
@@ -249,8 +256,10 @@ export default function Highlights() {
 
                 <blockquote className="border-l-4 pl-4 italic">
                   "He consistently ships{" "}
-                  <span className="text-gradient">high-quality</span> products
-                  quickly. He is a very reliable asset to any team!"{" "}
+                  <span className="text-gradient tracking-tight">
+                    high-quality
+                  </span>{" "}
+                  products quickly. He is a very reliable asset to any team!"{" "}
                   <footer className="mt-2 text-sm text-muted-foreground">
                     — Founder, Cubicle
                   </footer>
@@ -259,41 +268,6 @@ export default function Highlights() {
               <p className="mt-4 text-muted-foreground">...and many more.</p>
             </section>
           </div>
-
-          {/* Contact Section */}
-          <section>
-            <h2 className="text-2xl font-medium mt-6">Contact Me.</h2>
-            <p className="text-muted-foreground mb-4">
-              Reach out to me{" "}
-              <Link
-                href="mailto:ajfred2008@gmail.com"
-                className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
-              >
-                ajfred2008@gmail.com <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </p>
-
-            <div className="flex gap-4">
-              <Link
-                href="https://github.com/ajfred20"
-                className="text-foreground hover:text-blue-600"
-              >
-                Github <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/fred-aj/"
-                className="text-foreground hover:text-blue-600"
-              >
-                Linkedin <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-              <Link
-                href="https://x.com/iamajfred_"
-                className="text-foreground hover:text-blue-600"
-              >
-                Twitter <ArrowUpRight className="w-4 h-4 inline" />
-              </Link>
-            </div>
-          </section>
         </div>
       </main>
     </div>

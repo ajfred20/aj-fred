@@ -57,7 +57,7 @@ export default function HighlightCard({
             </span>
           ))}
         </div>
-        <button className="w-full mt-2 bg-[#234048] hover:bg-[#183136] text-white text-base font-semibold py-3 rounded-2xl transition-colors">
+        <button className="w-full mt-2 bg-[#1f383f] hover:bg-[#203a3f] text-white text-base font-semibold py-3 rounded-2xl transition-colors">
           {buttonText}
         </button>
       </div>
