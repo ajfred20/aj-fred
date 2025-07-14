@@ -34,7 +34,7 @@ export default function About() {
               <span className="text-sm">Works</span>
             </div>
             <span className="bg-neutral-800 text-xs px-2 py-0.5 rounded-full">
-              12
+              6
             </span>
           </Link>
           <Link
