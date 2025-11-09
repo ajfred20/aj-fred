@@ -4,19 +4,19 @@ import Image from 'next/image';
 
 export default function ResumeCard() {
   return (
-    <div className="relative rounded-2xl group w-[400px] h-[200px] bg-neutral-900 bg-gradient-to-br from-neutral-900 to-neutral-800">
+    <div className="col-span-1 md:col-span-1 xl:col-span-3 relative rounded-2xl group w-full h-[180px] sm:h-[200px] md:h-[220px] lg:h-[240px] bg-neutral-900 bg-gradient-to-br from-neutral-900 to-neutral-800">
       <div className="absolute inset-0 rounded-2xl bg-[url('/assets/resume.png')] bg-cover bg-center opacity-20"></div>
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 w-24 h-24 border-4 border-neutral-700 rounded-full opacity-70"></div>
-      <div className="absolute inset-0 p-4 flex flex-col justify-end">
-        <h3 className="text-lg font-medium tracking-tight">My Resume</h3>
+      <div className="absolute right-4 sm:right-6 lg:right-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 border-4 border-neutral-700 rounded-full opacity-70"></div>
+      <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end">
+        <h3 className="text-base sm:text-lg font-medium tracking-tight">My Resume</h3>
         <p className="text-xs text-neutral-300">Download</p>
         
         <Link 
           href="/resume.pdf" 
           target="_blank"
-          className="mt-3 inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors"
+          className="mt-2 sm:mt-3 inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium transition-colors"
         >
-          <Download className="w-4 h-4" />
+          <Download className="w-3 h-3 sm:w-4 sm:h-4" />
           Download Resume
         </Link>
       </div>
