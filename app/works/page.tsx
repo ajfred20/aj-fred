@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useScroll } from "framer-motion";
 import { StickyCard_001 } from "@/components/ui/skiper-ui/skiper16";
+import AnimatedMarquee from "@/components/ui/AnimatedMarquee";
 
 const projects = [
   {
@@ -99,6 +100,9 @@ export default function WorksPage() {
           );
         })}
       </main>
+
+      {/* Animated Marquee */}
+      <AnimatedMarquee />
 
       {/* Footer */}
       <footer className="bg-white px-4 sm:px-6 md:px-8 py-8">
