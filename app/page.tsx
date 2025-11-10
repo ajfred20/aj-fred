@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { CrowdCanvas } from "@/components/ui/skiper-ui/skiper39";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm">
-        <div className="text-xs sm:text-sm font-medium tracking-tight">HABIBI.</div>
+        <div className="text-xs sm:text-sm font-medium tracking-tight">
+          HABIBI.
+        </div>
         <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
           <Link
             href="/about"
@@ -44,8 +47,9 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <main className="flex items-end justify-start min-h-screen px-4 sm:px-6 md:px-12 lg:px-16 pb-12 sm:pb-16">
-        <div className="max-w-5xl">
+      <main className="relative h-screen px-4 sm:px-6 md:px-12 lg:px-16 pt-32 overflow-hidden bg-white">
+        {/* Hero Text */}
+        <div className="max-w-5xl z-20 relative mb-8">
           <h1 className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[7vw] font-bold leading-[0.9] tracking-tighter">
             YO, I&apos;M
             <br />
@@ -53,13 +57,21 @@ export default function Home() {
             <br />
             <span className="inline-block text-gray-400">(FOLIO&apos;25)</span>
           </h1>
+          <p className="text-xs sm:text-sm text-gray-600 mt-4 tracking-wide">
+            ONE IN A MILLION
+          </p>
+        </div>
+
+        {/* Scroll Down Indicator */}
+        <div className="absolute bottom-6 sm:bottom-8 right-4 sm:right-6 text-[10px] sm:text-xs tracking-wider z-20">
+          [ SCROLL DOWN ]
+        </div>
+
+        {/* CrowdCanvas Component */}
+        <div className="absolute inset-0 pointer-events-none">
+          <CrowdCanvas src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png" rows={15} cols={7} />
         </div>
       </main>
-
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 right-4 sm:right-6 text-[10px] sm:text-xs tracking-wider">
-        [ SCROLL DOWN ]
-      </div>
 
       {/* About Section */}
       <section className="min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20">
@@ -122,7 +134,9 @@ export default function Home() {
               <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
                 FRONTEND DEVELOPMENT
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">*</span>
+              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                *
+              </span>
             </div>
 
             {/* Skill 2 */}
@@ -130,7 +144,9 @@ export default function Home() {
               <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
                 BACKEND DEVELOPMENT
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">*</span>
+              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                *
+              </span>
             </div>
 
             {/* Skill 3 */}
@@ -138,7 +154,9 @@ export default function Home() {
               <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
                 UI/UX DESIGN
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">*</span>
+              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                *
+              </span>
             </div>
 
             {/* Skill 4 */}
@@ -146,7 +164,9 @@ export default function Home() {
               <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
                 API DEVELOPMENT
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">*</span>
+              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                *
+              </span>
             </div>
 
             {/* Skill 5 */}
@@ -154,7 +174,9 @@ export default function Home() {
               <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
                 PRODUCT DESIGN
               </span>
-              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">*</span>
+              <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                *
+              </span>
             </div>
           </div>
         </div>
@@ -169,8 +191,9 @@ export default function Home() {
             MY SKILLS?
           </h2>
           <p className="text-sm md:text-base text-gray-600 mb-6 sm:mb-8 px-4">
-            Got a great idea you need to work on or get brought to life? <br className="hidden sm:block" />{" "}
-            Send me an email and let&apos;s chat!
+            Got a great idea you need to work on or get brought to life?{" "}
+            <br className="hidden sm:block" /> Send me an email and let&apos;s
+            chat!
           </p>
           <a
             href="mailto:ajfred2008@gmail.com"
