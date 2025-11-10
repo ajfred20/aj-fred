@@ -56,9 +56,13 @@ const StickyCard_001 = ({
           scale,
           top: `calc(-5vh + ${i * 25 + 100}px)`,
         }}
-        className="relative flex h-[500px] w-[700px] origin-top flex-col overflow-hidden rounded-2xl"
+        className="relative flex h-[420px] w-[600px] origin-top flex-col overflow-hidden rounded-2xl"
       >
-        <img src={src} alt={title} className="h-full w-full object-cover rounded-2xl" />
+        <img
+          src={src}
+          alt={title}
+          className="h-full w-full object-cover rounded-2xl"
+        />
       </motion.div>
     </div>
   );
@@ -85,7 +89,7 @@ const Skiper16 = () => {
         {projects.map((project, i) => {
           const targetScale = Math.max(
             0.5,
-            1 - (projects.length - i - 1) * 0.1,
+            1 - (projects.length - i - 1) * 0.1
           );
           return (
             <StickyCard_001

@@ -80,7 +80,7 @@ export default function WorksPage() {
       {/* Sticky Cards */}
       <main
         ref={container}
-        className="relative flex w-full flex-col items-center justify-center py-[20vh]"
+        className="relative flex w-full flex-col items-center justify-center py-[1vh]"
       >
         {projects.map((project, i) => {
           const targetScale = Math.max(
