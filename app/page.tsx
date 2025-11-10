@@ -69,7 +69,11 @@ export default function Home() {
 
         {/* CrowdCanvas Component */}
         <div className="absolute inset-0 pointer-events-none">
-          <CrowdCanvas src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png" rows={15} cols={7} />
+          <CrowdCanvas
+            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/175711/open-peeps-sheet.png"
+            rows={15}
+            cols={7}
+          />
         </div>
       </main>
 
@@ -99,7 +103,7 @@ export default function Home() {
             solutions using modern frameworks and cutting-edge technologies.
           </p>
           <p className="text-[10px] sm:text-xs tracking-wider text-gray-400">
-            [ POWERED BY CAFFEINE ]
+            [ POWERED BY CAFFEINE & ANIME ]
           </p>
         </div>
       </section>

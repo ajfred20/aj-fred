@@ -1,147 +1,138 @@
+"use client";
+
 import Link from "next/link";
-import {
-  HomeIcon,
-  FolderClosed,
-  User,
-  Sparkles,
-  ImageIcon,
-} from "lucide-react";
-import ProjectCard from "../../components/ui/project-card";
+import { useRef } from "react";
+import { useScroll } from "framer-motion";
+import { StickyCard_001 } from "@/components/ui/skiper-ui/skiper16";
 
 const projects = [
   {
     title: "Chimly",
-    subtitle: "AI-powered PM",
-    image: "/assets/green.png",
-    featured: true,
+    src: "/assets/green.png",
   },
   {
     title: "Hustle",
-    subtitle: "Web3 Freelance Platform",
-    image: "/assets/ultravibe.png",
+    src: "/assets/ultravibe.png",
   },
   {
     title: "Maison",
-    subtitle: "Furniture E-commerce Template",
-    image: "/assets/star.jpg",
+    src: "/assets/star.jpg",
   },
   {
     title: "Bucx",
-    subtitle: "Stablecoin Wallet Platform",
-    image: "/assets/purple.png",
+    src: "/assets/purple.png",
   },
   {
     title: "Echo",
-    subtitle: "Saas website",
-    image: "/assets/echo.avif",
+    src: "/assets/echo.avif",
   },
 ];
 
 export default function WorksPage() {
-  return (
-    <div className="flex min-h-screen bg-black">
-      <aside className="w-[240px] border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col">
-        <div className="mb-10">
-          <h1 className="text-lg font-semibold tracking-tight">Aj Fred</h1>
-          <p className="text-sm text-neutral-400">Fullstack Developer</p>
-        </div>
+  const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
 
-        <nav className="flex-1 space-y-1">
+  return (
+    <div className="min-h-screen bg-white text-black">
+      {/* Top Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <Link
+          href="/"
+          className="text-xs sm:text-sm font-medium tracking-tight"
+        >
+          HABIBI.
+        </Link>
+        <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
           <Link
-            href="/"
-            className="flex items-center py-2 px-3 rounded-md bg-neutral-900 text-white"
+            href="/about"
+            className="text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <HomeIcon className="w-4 h-4 mr-3" />
-            <span className="text-sm">Home</span>
+            ABOUT
           </Link>
           <Link
             href="/works"
-            className="flex items-center justify-between py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+            className="text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <div className="flex items-center">
-              <FolderClosed className="w-4 h-4 mr-3" />
-              <span className="text-sm">Works</span>
-            </div>
-            <span className="bg-neutral-800 text-xs px-2 py-0.5 rounded-full">
-              6
-            </span>
+            BANKAI
           </Link>
-          <Link
-            href="/about"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+          <a
+            href="mailto:ajfred2008@gmail.com"
+            className="hidden md:inline text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <User className="w-4 h-4 mr-3" />
-            <span className="text-sm">About me</span>
-          </Link>
-          <Link
-            href="/Highlights"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
-          >
-            <Sparkles className="w-4 h-4 mr-3" />
-            <span className="text-sm">Highlights</span>
-          </Link>
-          <Link
-            href="/contact"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
-          >
-            <ImageIcon className="w-4 h-4 mr-3" />
-            <span className="text-sm">Contact me</span>
-          </Link>
-        </nav>
-      </aside>
-      <main className="flex-1 flex flex-col items-center px-8 pt-10 pb-6 ml-[120px]">
-        <div className="w-full max-w-3xl">
-          <div className="rounded-xl bg-zinc-900 px-6 py-3 mb-6">
-            <h2 className="text-xl font-medium text-white">My works</h2>
+            AJFRED2008@GMAIL.COM
+          </a>
+        </div>
+      </nav>
+
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-24 pb-16">
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter mb-4">
+          BANKAI
+        </h1>
+        <p className="text-xs sm:text-sm text-gray-500 tracking-wide">
+          割れた開発者の領域 - Wareta kaihatsusha no ryōiki
+        </p>
+      </div>
+
+      {/* Sticky Cards */}
+      <main
+        ref={container}
+        className="relative flex w-full flex-col items-center justify-center py-[20vh]"
+      >
+        {projects.map((project, i) => {
+          const targetScale = Math.max(
+            0.5,
+            1 - (projects.length - i - 1) * 0.1
+          );
+          return (
+            <StickyCard_001
+              key={`p_${i}`}
+              i={i}
+              {...project}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+            />
+          );
+        })}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white px-4 sm:px-6 md:px-8 py-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex gap-6 text-sm font-medium">
+            <Link
+              href="https://github.com/ajfred20"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Github
+            </Link>
+            <Link
+              href="https://bluesky.app"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Bluesky
+            </Link>
+            <Link
+              href="https://x.com/ajwgmi"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Twitter
+            </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="md:col-span-2">
-              <ProjectCard
-                image={projects[0].image}
-                title={projects[0].title}
-                subtitle={projects[0].subtitle}
-                large
-              >
-                <div className="absolute bottom-4 right-4 flex gap-2">
-                  <button className="w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors">
-                    <span className="sr-only">Previous</span>
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                      <path
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                  </button>
-                  <button className="w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors">
-                    <span className="sr-only">Next</span>
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                      <path
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </ProjectCard>
-            </div>
-            {projects.slice(1).map((project) => (
-              <ProjectCard
-                key={project.title}
-                image={project.image}
-                title={project.title}
-                subtitle={project.subtitle}
-              />
-            ))}
+          <div className="flex gap-6 text-sm font-medium">
+            <Link href="/" className="hover:opacity-60 transition-opacity">
+              Home
+            </Link>
+            <Link href="/about" className="hover:opacity-60 transition-opacity">
+              About
+            </Link>
           </div>
         </div>
-        <footer className="mt-auto w-full flex justify-center py-6">
-          <span className="text-neutral-400 text-sm">
-            Made by The Honoured One
-          </span>
-        </footer>
-      </main>
+      </footer>
     </div>
   );
 }

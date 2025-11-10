@@ -1,228 +1,261 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  HomeIcon,
-  FolderClosed,
-  User,
-  Sparkles,
-  ImageIcon,
-} from "lucide-react";
 
 export default function About() {
   return (
-    <div className="flex min-h-screen bg-black">
-      <aside className="w-[240px] border-r border-neutral-800 h-screen sticky top-0 p-5 flex flex-col">
-        <div className="mb-10">
-          <h1 className="text-lg font-semibold tracking-tighter">Aj Fred</h1>
-          <p className="text-sm text-neutral-400">Fullstack Developer</p>
-        </div>
-
-        <nav className="flex-1 space-y-1">
+    <div className="min-h-screen bg-white text-black">
+      {/* Top Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <Link
+          href="/"
+          className="text-xs sm:text-sm font-medium tracking-tight"
+        >
+          HABIBI.
+        </Link>
+        <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
           <Link
             href="/"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+            className="text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <HomeIcon className="w-4 h-4 mr-3" />
-            <span className="text-sm">Home</span>
+            HOME
           </Link>
           <Link
             href="/works"
-            className="flex items-center justify-between py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
+            className="text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <div className="flex items-center">
-              <FolderClosed className="w-4 h-4 mr-3" />
-              <span className="text-sm">Works</span>
-            </div>
-            <span className="bg-neutral-800 text-xs px-2 py-0.5 rounded-full">
-              6
-            </span>
+            PLAYGROUND
           </Link>
-          <Link
-            href="/about"
-            className="flex items-center py-2 px-3 rounded-md bg-neutral-900 text-white"
+          <a
+            href="mailto:ajfred2008@gmail.com"
+            className="hidden md:inline text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            <User className="w-4 h-4 mr-3" />
-            <span className="text-sm">About me</span>
-          </Link>
-          <Link
-            href="/highlights"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
-          >
-            <Sparkles className="w-4 h-4 mr-3" />
-            <span className="text-sm">Highlights</span>
-          </Link>
-          <Link
-            href="/contact"
-            className="flex items-center py-2 px-3 rounded-md text-neutral-400 hover:text-white transition-colors"
-          >
-            <ImageIcon className="w-4 h-4 mr-3" />
-            <span className="text-sm">Contact me</span>
-          </Link>
-        </nav>
-      </aside>
+            AJFRED2008@GMAIL.COM
+          </a>
+        </div>
+      </nav>
 
-      <main className="flex-1 flex flex-col items-center px-8 pt-10 pb-6">
-        <div className="w-full max-w-xl mx-auto">
-          <div className="rounded-xl bg-zinc-900 px-6 py-3 mb-6">
-            <h2 className="text-lg font-medium text-white">About me</h2>
-          </div>
-          <div className="rounded-xl bg-neutral-900 p-8 flex flex-col items-center">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-24 pb-16">
+        {/* Header */}
+        <div className="mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4">
+            FULLSTACK DEVELOPER
+            <br />& PRODUCT DESIGNER
+          </h1>
+          <p className="text-sm text-gray-600 max-w-md">
+            I am Habibi or Aj, a 16-year-old fullstack developer from Nigeria.
+            <br />
+            I write clean code, build scalable systems, and craft beautiful
+            <br />
+            user experiences.
+          </p>
+        </div>
+
+        {/* Profile Image */}
+        <div className="mb-16">
+          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-gray-100">
             <Image
-              src="/assets/echo.avif"
-              alt="Profile picture"
-              width={340}
-              height={220}
-              className="rounded-lg object-cover mb-6 w-full h-[220px]"
+              src="/assets/1.png"
+              alt="Profile"
+              fill
+              className="object-cover grayscale"
             />
-            <h1 className="text-2xl font-bold tracking-tighter text-white mb-1 w-full">
-              Udalric Aj Fred
-            </h1>
-            <p className="text-neutral-400 tracking-tight text-base mb-6 w-full">
-              Fullstack Developer & Product Designer
-            </p>
-            <p className="text-neutral-300 text-sm mb-8 w-full">
-              Known as "The Honored One" among my peers, I've mastered the art
-              of frontend development through what many call my "limitless
-              techniques." Like a master swordsman wielding Bankai, I seamlessly
-              blend design and functionality to create digital experiences that
-              transcend ordinary boundaries. My approach draws inspiration from
-              the spiritual pressure of clean code and the Zanpakutō of modern
-              frameworks. When faced with complex challenges, I release my final
-              form—transforming impossible requirements into elegant solutions
-              that leave clients in awe of what's possible. This is not just
-              development; this is my way of the code.
-            </p>
-            <hr className="border-neutral-800 w-full mb-8" />
-            <div className="w-full">
-              <div className="flex justify-between items-center mb-1">
-                <h3 className="text-neutral-400 text-base tracking-tight font-medium">
-                  Experience
-                </h3>
-                <Link
-                  href="https://github.com/ajfred20"
-                  target="_blank"
-                  className="text-xs text-neutral-400 tracking-tight hover:text-white underline flex items-center gap-1"
-                >
-                  Github
-                  <svg width="12" height="12" fill="none" viewBox="0 0 24 24">
-                    <path
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      d="M7 17L17 7M7 7h10v10"
-                    />
-                  </svg>
-                </Link>
-              </div>
-              <div className="mt-4">
-                <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
-                  Lead Frontend Developer at Chimly
-                </h4>
-                <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
-                  Feb 2025 - Present
-                </span>
-                <p className="text-neutral-400 text-sm tracking-tighter text-justify">
-                  Led the development of key frontend pages including home,
-                  about, projects, and highlights sections with responsive
-                  layouts. Architected and implemented the AI interface with
-                  real-time interactions, chat functionality, and dynamic
-                  content generation. Optimized component reusability across the
-                  application and ensured cross-browser compatibility while
-                  maintaining a consistent design system throughout the
-                  platform.
-                </p>
-              </div>
-              <div className="mt-8">
-                <h4 className="text-white font-semibold text-lg tracking-tight mb-1">
-                  Frontend Mechanic at Bucx
-                </h4>
-                <span className="text-xs text-neutral-500 tracking-tight mb-2 block">
-                  Jan 2025 - Present
-                </span>
-                <p className="text-neutral-400 text-sm tracking-tighter text-justify">
-                  Designed and developed the main landing page with responsive
-                  layouts and interactive elements to improve user engagement.
-                  Built a comprehensive admin dashboard with data visualization,
-                  user management features, and real-time analytics. Implemented
-                  role-based access control and optimized dashboard performance
-                  for handling large datasets while maintaining a clean,
-                  intuitive interface.
-                </p>
-              </div>
-              <hr className="border-neutral-800 w-full my-8" />
-              <h3 className="text-neutral-400 text-base tracking-tight font-medium mb-4">
-                Awards & Recognitions
-              </h3>
-              <div className="divide-y divide-neutral-800">
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white text-base tracking-tight">
-                    React, Site Of The Day
-                  </span>
-                  <span className="text-neutral-400 text-sm tracking-tight">
-                    Nov 2024
-                  </span>
-                </div>
+          </div>
+        </div>
 
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white text-base tracking-tight">
-                    Young Developer of the Year
-                  </span>
-                  <span className="text-neutral-400 text-sm tracking-tight">
-                    Sep 2023
-                  </span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="text-white text-base tracking-tight">
-                    The Honoured One
-                  </span>
-                  <span className="text-neutral-400 text-sm tracking-tight">
-                    Apr 2023
-                  </span>
-                </div>
-              </div>
-              <hr className="border-neutral-800 w-full my-8" />
-              <div className="rounded-xl bg-zinc-900 p-6 mt-6">
-                <h3 className="text-white text-lg font-semibold mb-4 tracking-tight">
-                  Tools and Stacks
-                </h3>
-                <div className="flex gap-4 flex-wrap justify-start">
-                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
-                    <Image
-                      src="/tools/framer.svg"
-                      alt="Framer"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
-                    <Image
-                      src="/tools/figma.svg"
-                      alt="Figma"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="bg-neutral-800 rounded-lg p-3 flex items-center justify-center">
-                    <Image
-                      src="/tools/cursor.png"
-                      alt="Cursor"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                  <div className="bg-white rounded-lg p-3 flex items-center justify-center">
-                    <Image
-                      src="/tools/photoshop.svg"
-                      alt="Photoshop"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
-                </div>
-              </div>
+        {/* About Text */}
+        <div className="mb-16 space-y-6">
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed ">
+            ABOUT ME
+          </p>
+          <p className="text-sm sm:text-base font-medium text-gray-600 leading-relaxed">
+            I'm a fullstack developer and designer from Nigeria, passionate
+            about building things that live on the internet. My journey started
+            at 12 when I built my first website, and I haven't stopped creating
+            since then.
+          </p>
+          <p className="text-sm sm:text-base font-medium text-gray-600 leading-relaxed">
+            I'm a generalist who loves to design in Figma, write clean code in
+            React, build robust backends with Node.js, and create seamless user
+            experiences. My approach blends technical expertise with creative
+            problem-solving to build products that users actually enjoy using.
+          </p>
+          <p className="text-sm sm:text-base font-medium text-gray-600 leading-relaxed">
+            In my free time, I work on side projects, contribute to open source,
+            and explore new technologies. I'm currently obsessed with Next.js,
+            TypeScript, and modern design systems—constantly learning and
+            pushing the boundaries of what's possible on the web.
+          </p>
+        </div>
+
+        {/* Companies/Tools */}
+        <div className="mb-16">
+          <p className="text-xs text-gray-500 mb-8 tracking-wider">
+            TOOLS & TECHNOLOGIES I USE
+          </p>
+          <div className="grid grid-cols-3 gap-8 mb-8">
+            <div className="text-center">
+              <p className="text-sm font-medium">React</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-medium">Next.js</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-medium">TypeScript</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-8">
+            <div className="text-center">
+              <p className="text-sm font-medium">Node.js</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-medium">Figma</p>
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-medium">Tailwind</p>
             </div>
           </div>
         </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 pb-16">
+          <div>
+            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+              4+
+            </p>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Years of experience
+            </p>
+          </div>
+          <div>
+            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+              20+
+            </p>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Projects delivered
+            </p>
+          </div>
+          <div>
+            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+              30+
+            </p>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Satsified clients
+            </p>
+          </div>
+          <div>
+            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+              $20k
+            </p>
+            <p className="text-xs sm:text-sm text-gray-600">
+              Startup revenue generated
+            </p>
+          </div>
+        </div>
+
+        {/* Skills List */}
+        <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20">
+          <div className="max-w-full w-full mx-auto">
+            <div className="space-y-0">
+              {/* Skill 1 */}
+              <div className="flex items-center justify-between py-4 sm:py-6 border-t border-black group cursor-pointer hover:bg-black hover:text-white transition-colors duration-300">
+                <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
+                  FRONTEND DEVELOPMENT
+                </span>
+                <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                  *
+                </span>
+              </div>
+
+              {/* Skill 2 */}
+              <div className="flex items-center justify-between py-4 sm:py-6 border-t border-black group cursor-pointer hover:bg-black hover:text-white transition-colors duration-300">
+                <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
+                  BACKEND DEVELOPMENT
+                </span>
+                <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                  *
+                </span>
+              </div>
+
+              {/* Skill 3 */}
+              <div className="flex items-center justify-between py-4 sm:py-6 border-t border-black group cursor-pointer hover:bg-black hover:text-white transition-colors duration-300">
+                <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
+                  UI/UX DESIGN
+                </span>
+                <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                  *
+                </span>
+              </div>
+
+              {/* Skill 4 */}
+              <div className="flex items-center justify-between py-4 sm:py-6 border-t border-black group cursor-pointer hover:bg-black hover:text-white transition-colors duration-300">
+                <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
+                  API DEVELOPMENT
+                </span>
+                <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                  *
+                </span>
+              </div>
+
+              {/* Skill 5 */}
+              <div className="flex items-center justify-between py-4 sm:py-6 border-t border-b border-black group cursor-pointer hover:bg-black hover:text-white transition-colors duration-300">
+                <span className="text-base sm:text-xl md:text-2xl lg:text-3xl font-medium tracking-tight px-2 sm:px-4">
+                  PRODUCT DESIGN
+                </span>
+                <span className="text-xl sm:text-2xl md:text-3xl px-2 sm:px-4">
+                  *
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <div className="text-center py-16">
+          <p className="text-sm text-gray-600 mb-6">
+            Got great ideas and want to bring them to life?
+          </p>
+          <a
+            href="mailto:ajfred2008@gmail.com"
+            className="inline-block border-2 border-black px-8 py-4 rounded-full text-sm font-medium hover:bg-black hover:text-white transition-colors duration-300"
+          >
+            LET&apos;S WORK TOGETHER
+          </a>
+        </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white px-4 sm:px-6 md:px-8 py-8 ">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex gap-6 text-sm font-medium">
+            <Link
+              href="https://github.com/ajfred20"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Github
+            </Link>
+            <Link
+              href="https://bluesky.app"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Bluesky
+            </Link>
+            <Link
+              href="https://x.com/ajwgmi"
+              className="hover:opacity-60 transition-opacity"
+            >
+              Twitter
+            </Link>
+          </div>
+          <div className="flex gap-6 text-sm font-medium">
+            <Link href="/" className="hover:opacity-60 transition-opacity">
+              Home
+            </Link>
+            <Link href="/works" className="hover:opacity-60 transition-opacity">
+              Playground
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
