@@ -1,5 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import { useScroll } from "framer-motion";
+import { CharacterV3 } from "@/components/ui/skiper-ui/skiper31";
+
+const ToolsScrollSection = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const techIcons = [
+    "/mac/Discord.png",
+    "/mac/figma.png",
+    "/mac/Framer.png",
+    "/mac/Github.png",
+    "/mac/Monog.png",
+    "/mac/notion.png",
+    "/mac/Pieces.png",
+    "/mac/Postman.png",
+    "/mac/vsCode.png",
+  ];
+  const iconCenterIndex = Math.floor(techIcons.length / 2);
+
+  return (
+    <div
+      ref={targetRef}
+      className="relative box-border flex h-[210vh] flex-col items-center justify-center gap-[2vw] overflow-hidden bg-[#f5f4f3] p-[2vw] mb-16 rounded-lg"
+    >
+      <p className="text-xs text-gray-500 tracking-wider uppercase">
+        TOOLS & TECHNOLOGIES I USE
+      </p>
+      <div
+        className="w-full max-w-4xl text-center"
+        style={{
+          perspective: "500px",
+        }}
+      >
+        {techIcons.map((icon, index) => (
+          <CharacterV3
+            key={index}
+            char={icon}
+            index={index}
+            centerIndex={iconCenterIndex}
+            scrollYProgress={scrollYProgress}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default function About() {
   return (
@@ -87,34 +140,8 @@ export default function About() {
           </p>
         </div>
 
-        {/* Companies/Tools */}
-        <div className="mb-16">
-          <p className="text-xs text-gray-500 mb-8 tracking-wider">
-            TOOLS & TECHNOLOGIES I USE
-          </p>
-          <div className="grid grid-cols-3 gap-8 mb-8">
-            <div className="text-center">
-              <p className="text-sm font-medium">React</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-medium">Next.js</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-medium">TypeScript</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-8">
-            <div className="text-center">
-              <p className="text-sm font-medium">Node.js</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-medium">Figma</p>
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-medium">Tailwind</p>
-            </div>
-          </div>
-        </div>
+        {/* Companies/Tools - Animated Scroll */}
+        <ToolsScrollSection />
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 pb-16">

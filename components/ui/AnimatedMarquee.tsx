@@ -31,13 +31,27 @@ const AnimatedMarquee = () => {
     marqueeRefs.current.forEach((marquee, index) => {
       if (marquee) {
         // White backgrounds (index 0 and 2) go left, black background (index 1) goes right
-        const direction = index === 1 ? "50%" : "-50%";
-        gsap.to(marquee, {
-          x: direction,
-          duration: marqueeRows[index].speed,
-          ease: "none",
-          repeat: -1,
-        });
+        if (index === 1) {
+          // For right-scrolling, start from -50% and move to 0%
+          gsap.fromTo(
+            marquee,
+            { x: "-50%" },
+            {
+              x: "0%",
+              duration: marqueeRows[index].speed,
+              ease: "none",
+              repeat: -1,
+            }
+          );
+        } else {
+          // For left-scrolling, move from 0% to -50%
+          gsap.to(marquee, {
+            x: "-50%",
+            duration: marqueeRows[index].speed,
+            ease: "none",
+            repeat: -1,
+          });
+        }
       }
     });
   }, []);
