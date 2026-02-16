@@ -9,7 +9,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black">
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm">
-        <div className="text-xs sm:text-sm font-medium tracking-tight">
+        <div className="text-sm sm:text-base font-medium font-fancy ">
           HABIBI.
         </div>
         <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
@@ -50,12 +50,12 @@ export default function Home() {
       <main className="relative h-screen px-4 sm:px-6 md:px-12 lg:px-16 pt-32 overflow-hidden bg-white">
         {/* Hero Text */}
         <div className="max-w-5xl z-20 relative mb-8">
-          <h1 className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[7vw] font-bold leading-[0.9] tracking-tighter">
+          <h1 className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[7vw] font-fancy font-bold leading-[0.9] tracking-tight">
             YO, I&apos;M
             <br />
             HABIBI
             <br />
-            <span className="inline-block text-gray-400">(FOLIO&apos;25)</span>
+            <span className="inline-block text-gray-400">(FOLIO&apos;26)</span>
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mt-4 tracking-wide">
             ONE IN A MILLION
@@ -83,16 +83,10 @@ export default function Home() {
           <p className="text-xs sm:text-sm tracking-wider mb-6 sm:mb-8 text-gray-500">
             (FULLSTACK DEVELOPER)
           </p>
-          <h2 className="text-[8vw] sm:text-[7vw] md:text-[5vw] lg:text-[4vw] font-bold leading-[1.1] tracking-tighter mb-8 sm:mb-12 px-2">
-            OBSESSED WITH BUILDING
+          <h2 className="text-[8vw] sm:text-[7vw] md:text-[5vw] lg:text-[4vw] font-zaslia leading-[1.1] tracking-tight mb-8 sm:mb-12 px-2">
+            ONE OF THE GREATEST TO WALK
             <br />
-            SEAMLESS EXPERIENCES
-            <br />
-            THAT BLEND FRONTEND -
-            <br />
-            BACKEND AND PURE
-            <br />
-            INNOVATION.
+            THE PLANET "EARTH".
           </h2>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6 px-2">
             I&apos;m a fullstack developer from Nigeria. I enjoy working
@@ -189,7 +183,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-16 py-20 sm:py-32">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-bold leading-[0.9] tracking-tighter mb-4 sm:mb-6 px-2">
+          <h2 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] font-zaslia leading-[0.9] tracking-tighter mb-4 sm:mb-6 px-2">
             WANNA TEST OUT
             <br />
             MY SKILLS?
@@ -211,7 +205,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-white px-4 sm:px-6 md:px-12 lg:px-16 py-6 sm:py-8">
         <div className="max-w-full w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
+          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium font-zaslia">
             <Link
               href="https://github.com/ajfred20"
               className="hover:opacity-60 transition-opacity"
@@ -219,19 +213,13 @@ export default function Home() {
               Github
             </Link>
             <Link
-              href="https://bluesky.app"
-              className="hover:opacity-60 transition-opacity"
-            >
-              Bluesky
-            </Link>
-            <Link
-              href="https://x.com/ajwgmi"
+              href="https://x.com/habibiofng"
               className="hover:opacity-60 transition-opacity"
             >
               Twitter
             </Link>
           </div>
-          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
+          <div className="flex gap-4 sm:gap-6 text-xs sm:text-sm font-medium font-zaslia">
             <Link href="/about" className="hover:opacity-60 transition-opacity">
               About
             </Link>

@@ -1,76 +1,20 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import { useScroll } from "framer-motion";
-import { CharacterV3 } from "@/components/ui/skiper-ui/skiper31";
-
-const ToolsScrollSection = () => {
-  const targetRef = useRef<HTMLDivElement | null>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const techIcons = [
-    "/mac/Discord.png",
-    "/mac/figma.png",
-    "/mac/Framer.png",
-    "/mac/Github.png",
-    "/mac/Monog.png",
-    "/mac/notion.png",
-    "/mac/Pieces.png",
-    "/mac/Postman.png",
-    "/mac/vsCode.png",
-  ];
-  const iconCenterIndex = Math.floor(techIcons.length / 2);
-
-  return (
-    <div
-      ref={targetRef}
-      className="relative box-border flex h-[210vh] flex-col items-center justify-center gap-[2vw] overflow-hidden bg-[#f5f4f3] p-[2vw] mb-16 rounded-lg"
-    >
-      <p className="text-xs text-gray-500 tracking-wider uppercase">
-        TOOLS & TECHNOLOGIES I USE
-      </p>
-      <div
-        className="w-full max-w-4xl text-center"
-        style={{
-          perspective: "500px",
-        }}
-      >
-        {techIcons.map((icon, index) => (
-          <CharacterV3
-            key={index}
-            char={icon}
-            index={index}
-            centerIndex={iconCenterIndex}
-            scrollYProgress={scrollYProgress}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 export default function About() {
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Top Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm border-b border-gray-100">
-        <Link
-          href="/"
-          className="text-xs sm:text-sm font-medium tracking-tight"
-        >
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white/90 backdrop-blur-sm">
+        <div className="text-sm sm:text-base font-medium font-fancy ">
           HABIBI.
-        </Link>
+        </div>
         <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
           <Link
-            href="/"
+            href="/about"
             className="text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
-            HOME
+            ABOUT
           </Link>
           <Link
             href="/works"
@@ -79,7 +23,7 @@ export default function About() {
             PLAYGROUND
           </Link>
           <a
-            href="mailto:ajfred2008@gmail.com"
+            href="mailto:habibi@gmail.com"
             className="hidden md:inline text-xs sm:text-sm hover:opacity-60 transition-opacity"
           >
             AJFRED2008@GMAIL.COM
@@ -90,12 +34,14 @@ export default function About() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-24 pb-16">
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-zaslia tracking-tight mb-4">
             FULLSTACK DEVELOPER
-            <br />& PRODUCT DESIGNER
+            <br />& DESIGNER
           </h1>
           <p className="text-sm text-gray-600 max-w-md">
-            I am Habibi or Aj, a 16-year-old fullstack developer from Nigeria.
+            I am Aj,{" "}
+            <span className="text-purple-700">a 16(almost 17)-year-old </span>
+            fullstack developer from Nigeria.
             <br />
             I write clean code, build scalable systems, and craft beautiful
             <br />
@@ -107,7 +53,7 @@ export default function About() {
         <div className="mb-16">
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden bg-gray-100">
             <Image
-              src="/assets/1.png"
+              src="/assets/purple.png"
               alt="Profile"
               fill
               className="object-cover grayscale"
@@ -117,7 +63,7 @@ export default function About() {
 
         {/* About Text */}
         <div className="mb-16 space-y-6">
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed ">
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-fancy">
             ABOUT ME
           </p>
           <p className="text-sm sm:text-base font-medium text-gray-600 leading-relaxed">
@@ -140,13 +86,10 @@ export default function About() {
           </p>
         </div>
 
-        {/* Companies/Tools - Animated Scroll */}
-        <ToolsScrollSection />
-
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 pb-16">
           <div>
-            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+            <p className="text-4xl sm:text-7xl font-fancy tracking-tighter mb-2">
               4+
             </p>
             <p className="text-xs sm:text-sm text-gray-600">
@@ -154,7 +97,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+            <p className="text-4xl sm:text-7xl font-fancy tracking-tighter mb-2">
               20+
             </p>
             <p className="text-xs sm:text-sm text-gray-600">
@@ -162,7 +105,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+            <p className="text-4xl sm:text-7xl font-fancy tracking-tighter mb-2">
               30+
             </p>
             <p className="text-xs sm:text-sm text-gray-600">
@@ -170,7 +113,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <p className="text-4xl sm:text-7xl font-bold tracking-tighter mb-2">
+            <p className="text-4xl sm:text-7xl font-fancy tracking-tighter mb-2">
               $20k
             </p>
             <p className="text-xs sm:text-sm text-gray-600">
@@ -243,7 +186,7 @@ export default function About() {
           </p>
           <a
             href="mailto:ajfred2008@gmail.com"
-            className="inline-block border-2 border-black px-8 py-4 rounded-full text-sm font-medium hover:bg-black hover:text-white transition-colors duration-300"
+            className="inline-block border-2 border-black px-8 py-4 rounded-full text-base font-fancy hover:bg-black hover:text-white transition-colors duration-300"
           >
             LET&apos;S WORK TOGETHER
           </a>
@@ -253,7 +196,7 @@ export default function About() {
       {/* Footer */}
       <footer className="bg-white px-4 sm:px-6 md:px-8 py-8 ">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex gap-6 text-sm font-medium">
+          <div className="flex gap-6 text-sm font-zaslia">
             <Link
               href="https://github.com/ajfred20"
               className="hover:opacity-60 transition-opacity"
@@ -261,19 +204,13 @@ export default function About() {
               Github
             </Link>
             <Link
-              href="https://bluesky.app"
-              className="hover:opacity-60 transition-opacity"
-            >
-              Bluesky
-            </Link>
-            <Link
-              href="https://x.com/ajwgmi"
+              href="https://x.com/habibiofng"
               className="hover:opacity-60 transition-opacity"
             >
               Twitter
             </Link>
           </div>
-          <div className="flex gap-6 text-sm font-medium">
+          <div className="flex gap-6 text-sm font-zaslia">
             <Link href="/" className="hover:opacity-60 transition-opacity">
               Home
             </Link>
