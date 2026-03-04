@@ -88,14 +88,15 @@ export default function Home() {
             <br />
             THE PLANET "EARTH".
           </h2>
-          <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6 px-2">
-            I&apos;m a fullstack developer from Nigeria. I enjoy working 
-            <br className="hidden sm:block" />
-            on web applications, building scalable systems, crafting APIs,
-            no-code
-            <br className="hidden sm:block" />
-            solutions using modern frameworks and cutting-edge technologies.
-          </p>
+         <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto mb-6 px-2">
+  I&apos;m a fullstack developer from Nigeria. I enjoy working{" "}
+  <br className="hidden sm:block" />
+  on web applications, building scalable systems, crafting APIs,
+  no-code{" "}
+  <br className="hidden sm:block" />
+  solutions using modern frameworks and cutting-edge technologies.
+</p>
+
           <p className="text-[10px] sm:text-xs tracking-wider text-gray-400">
             [ POWERED BY CAFFEINE & ANIME ]
           </p>
