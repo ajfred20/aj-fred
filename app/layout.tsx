@@ -9,6 +9,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  // Adding metadataBase allows Next.js to resolve relative image paths
+  metadataBase: new URL("https://ajfred.vercel.app"),
   title: "Habibi - Fullstack Developer",
   description: "Fullstack Developer crafting amazing user interfaces",
   icons: {
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Habibi Portfolio",
     images: [
       {
-        url: "/assets/og-image.jpg",
+        url: "/assets/og-image.jpg", // This now correctly points to https://ajfred.vercel.app/assets/og-image.jpg
         width: 1200,
         height: 630,
         alt: "Habibi - Fullstack Developer",
